@@ -1,9 +1,12 @@
-package pages.autherification;
+package pages;
 
 import libs.ConfigData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginPage extends ParentPage {
 
@@ -22,6 +25,7 @@ public class LoginPage extends ParentPage {
 
     @FindBy(name = "btnReset")
     WebElement ResetButtonName;
+
 
     public void openLoginPage(String loginPageUrl){
         driver.navigate().to(loginPageUrl);
@@ -49,6 +53,10 @@ public class LoginPage extends ParentPage {
         inputLogin(login);
         inputPassword(password);
         clickOnLoginButton();
+    }
+
+    public void loginQuickly(){
+        loginQuickly(ConfigData.getConfigValue("login"), ConfigData.getConfigValue("password"));
     }
 
 

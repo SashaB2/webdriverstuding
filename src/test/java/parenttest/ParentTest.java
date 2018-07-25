@@ -8,15 +8,12 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.UnexpectedAlertBehaviour;
-import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -26,8 +23,10 @@ import libs.ScreenShots;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import pages.autherification.LoginPage;
-import pages.autherification.MainPage;
+import pages.datepickerpages.BirthDateDemoPage;
+import pages.LoginPage;
+import pages.MainPage;
+import pages.datepickerpages.DatePickerPage;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -51,6 +50,8 @@ public class ParentTest {
     //for pages
     public LoginPage loginPage;
     public MainPage mainPage;
+    public DatePickerPage datePickerPage;
+    public BirthDateDemoPage birthDateDemoPage;
 
 
     public ParentTest(String browser){
@@ -156,6 +157,8 @@ public class ParentTest {
         //Page initialization
         loginPage = new LoginPage(driver);
         mainPage = new MainPage(driver);
+        datePickerPage = new DatePickerPage(driver);
+        birthDateDemoPage = new BirthDateDemoPage(driver);
     }
 
     @After
