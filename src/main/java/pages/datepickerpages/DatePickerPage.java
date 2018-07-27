@@ -25,10 +25,16 @@ public class DatePickerPage extends ParentPage {
         return PageHeaderTagName.getText();
     }
 
-    public void inputDateTimeIntoDataPicker(String dateValue, String timeValue){
+    public void inputDateIntoDataPicker(String dateValue){
         dataPickerName.sendKeys(dateValue);
-        dataPickerName.sendKeys(Keys.TAB);
+    }
+
+    public void inputTimeIntoDataPicker(String timeValue){
         dataPickerName.sendKeys(timeValue);
+    }
+
+    public void clickOnTabButton(CharSequence key){
+        dataPickerName.sendKeys(key);
     }
 
     public void clickOnSubmitButton(){

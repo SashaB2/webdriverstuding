@@ -15,9 +15,9 @@ import java.util.Collection;
 
 public class InvalidLoginTest extends ParentTest {
 
-    String login;
+    private String login;
 
-    String password;
+    private String password;
 
     public InvalidLoginTest(String browser, String login, String password){
         super(browser);
