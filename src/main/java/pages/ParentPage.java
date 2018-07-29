@@ -33,4 +33,8 @@ public class ParentPage {
         return driver.getTitle();
     }
 
+    public void refreshWindow(){
+        actionsWithWebElements.refreshWindow();
+    }
+
 }

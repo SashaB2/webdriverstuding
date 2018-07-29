@@ -23,10 +23,12 @@ import libs.ScreenShots;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import pages.DragAndDropPage;
 import pages.datepickerpages.BirthDateDemoPage;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.datepickerpages.DatePickerPage;
+import pages.uploadanddownload.FileUploadSikuliPage;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -52,6 +54,8 @@ public class ParentTest {
     public MainPage mainPage;
     public DatePickerPage datePickerPage;
     public BirthDateDemoPage birthDateDemoPage;
+    public DragAndDropPage dragAndDropPage;
+    public FileUploadSikuliPage fileUploadSikuliPage;
 
 
     public ParentTest(String browser){
@@ -159,6 +163,8 @@ public class ParentTest {
         mainPage = new MainPage(driver);
         datePickerPage = new DatePickerPage(driver);
         birthDateDemoPage = new BirthDateDemoPage(driver);
+        dragAndDropPage = new DragAndDropPage(driver);
+        fileUploadSikuliPage = new FileUploadSikuliPage(driver);
     }
 
     @After
@@ -168,7 +174,7 @@ public class ParentTest {
             screenShots.screenShot(pathToScreenShot, driver);
         }
 
-        driver.quit();
+//        driver.quit();
 
     }
 

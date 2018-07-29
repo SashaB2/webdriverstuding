@@ -21,7 +21,7 @@ public class DatePickerPage extends ParentPage {
     @FindBy(xpath = "//input[@type='submit']")
     WebElement SubmitButtonXpath;
 
-    public String PageHeader(){
+    public String headerOfBirthDateDemoPage(){
         return PageHeaderTagName.getText();
     }
 

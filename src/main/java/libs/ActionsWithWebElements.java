@@ -7,8 +7,11 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ActionsWithWebElements {
 
@@ -18,6 +21,13 @@ public class ActionsWithWebElements {
     public ActionsWithWebElements(WebDriver driver){
         this.driver = driver;
         this.log = Logger.getLogger(getClass());
+    }
+
+    /**
+     * refresh window
+     */
+    public void refreshWindow(){
+       driver.navigate().refresh();
     }
 
     /**
@@ -219,6 +229,25 @@ public class ActionsWithWebElements {
             Assert.fail("Alert window do not opened");
         }
 
+    }
+
+
+    //Drag and drop functionality
+
+    /**
+     * Drag lement from to
+     * @param from element that need to drag
+     * @param to place where need o drop element
+     */
+    public void dragFromTo(WebElement from, WebElement to){
+        Actions act = new Actions(driver);
+        try {
+            act.dragAndDrop(from, to).build().perform();
+        }
+        catch (Exception e){
+            log.error("Element in drag and drop is not found From Exception", e);
+            Assert.fail("Element in drag and drop is not found From Exception");
+        }
     }
 
 

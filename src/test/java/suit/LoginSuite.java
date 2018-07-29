@@ -10,6 +10,7 @@ import org.junit.runners.Suite;
         ValidLoginTest.class,
         InvalidLoginTest.class
 
+
 })
 public class LoginSuite {
 }

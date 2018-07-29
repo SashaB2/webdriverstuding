@@ -30,8 +30,4 @@ public class MainPage extends ParentPage {
         }
     }
 
-
-
-
-
 }
