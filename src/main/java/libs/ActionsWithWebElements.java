@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -18,7 +20,7 @@ public class ActionsWithWebElements {
      WebDriver driver;
      Logger log;
 
-    public ActionsWithWebElements(WebDriver driver){
+    public ActionsWithWebElements(WebDriver driver) {
         this.driver = driver;
         this.log = Logger.getLogger(getClass());
     }
@@ -247,6 +249,51 @@ public class ActionsWithWebElements {
         catch (Exception e){
             log.error("Element in drag and drop is not found From Exception", e);
             Assert.fail("Element in drag and drop is not found From Exception");
+        }
+    }
+
+
+    //download functionality
+
+    /**
+     *
+     * @param element take from this element source for downloading file
+     * @param wgetCommand put main wget command without source download file
+     * cmd example = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
+     */
+    public void downloadFile(WebElement element, String wgetCommand){
+        String sourceLocation = element.getAttribute("href");
+        try{
+            Process execution = Runtime.getRuntime().exec(wgetCommand + " " + sourceLocation);
+            int exitVal = execution.waitFor();
+        }
+        catch (IOException e){
+            log.error("Can't download file of Yahoo", e);
+            Assert.fail("Can't download file of Yahoo");
+        }
+        catch (InterruptedException e){
+            log.error("Can't download file of Yahoo", e);
+            Assert.fail("Can't download file of Yahoo");
+        }
+    }
+
+    public boolean ifFilePresent(String location, String fileName){
+        File file = new File(location + fileName);
+        return file.exists();
+    }
+
+    public void deleteFile(String location, String fileName){
+        File file = new File(location + fileName);
+        Boolean result = false;
+
+        if(file.exists()){
+            result = file.delete();
+        }
+
+        if(result){
+            log.info("File deleted: " + fileName);
+        }else{
+            log.info("File did not deleted: " + fileName);
         }
     }
 

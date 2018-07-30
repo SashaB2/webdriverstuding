@@ -28,6 +28,7 @@ import pages.datepickerpages.BirthDateDemoPage;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.datepickerpages.DatePickerPage;
+import pages.uploadanddownload.FileDownloadPage;
 import pages.uploadanddownload.FileUploadSikuliPage;
 
 import java.util.Arrays;
@@ -56,6 +57,7 @@ public class ParentTest {
     public BirthDateDemoPage birthDateDemoPage;
     public DragAndDropPage dragAndDropPage;
     public FileUploadSikuliPage fileUploadSikuliPage;
+    public FileDownloadPage fileDownloadPage;
 
 
     public ParentTest(String browser){
@@ -165,6 +167,7 @@ public class ParentTest {
         birthDateDemoPage = new BirthDateDemoPage(driver);
         dragAndDropPage = new DragAndDropPage(driver);
         fileUploadSikuliPage = new FileUploadSikuliPage(driver);
+        fileDownloadPage = new FileDownloadPage(driver);
     }
 
     @After
