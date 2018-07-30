@@ -28,6 +28,7 @@ import pages.datepickerpages.BirthDateDemoPage;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.datepickerpages.DatePickerPage;
+import pages.tablepages.MoneyRediffPage;
 import pages.uploadanddownload.FileDownloadPage;
 import pages.uploadanddownload.FileUploadSikuliPage;
 
@@ -58,6 +59,7 @@ public class ParentTest {
     public DragAndDropPage dragAndDropPage;
     public FileUploadSikuliPage fileUploadSikuliPage;
     public FileDownloadPage fileDownloadPage;
+    public MoneyRediffPage moneyRediffPage;
 
 
     public ParentTest(String browser){
@@ -168,6 +170,7 @@ public class ParentTest {
         dragAndDropPage = new DragAndDropPage(driver);
         fileUploadSikuliPage = new FileUploadSikuliPage(driver);
         fileDownloadPage = new FileDownloadPage(driver);
+        moneyRediffPage = new MoneyRediffPage(driver);
     }
 
     @After
