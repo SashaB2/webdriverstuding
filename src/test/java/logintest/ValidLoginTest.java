@@ -20,6 +20,8 @@ public class ValidLoginTest extends ParentTest {
         //open login page
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
+        log.trace("Login page opened");
+
         loginPage.inputLogin(ConfigData.getConfigValue("login"));
         loginPage.inputPassword(ConfigData.getConfigValue("password"));
         loginPage.clickOnLoginButton();
@@ -27,7 +29,7 @@ public class ValidLoginTest extends ParentTest {
         //check if user logged -> if opened main page
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Manager HomePage");
         checkAcceptanceCriteria("User has not logged / main page has not opened", mainPage.getValueFromHeading(), "Guru99 Bank");
-
+        log.trace("User logged");
     }
 
 }

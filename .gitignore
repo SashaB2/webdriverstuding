@@ -47,7 +47,6 @@ allure/allure-2.7.0/plugins/trx-plugin/allure-plugin.yml
 allure/allure-2.7.0/plugins/xctest-plugin/allure-plugin.yml
 allure/allure-2.7.0/plugins/xunit-xml-plugin/allure-plugin.yml
 drivers/
-src/main/java/data/dataForSikuli/
 target/classes/
 target/maven-status/
 target/screenshot/

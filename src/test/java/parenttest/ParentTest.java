@@ -1,6 +1,7 @@
 package parenttest;
 
 import libs.ConfigData;
+import libs.Global;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
@@ -15,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -78,8 +78,7 @@ public class ParentTest {
     public static Collection testData() throws IOException{
         return Arrays.asList(new Object[][]{
                 {"chrome"},
-                {"fireFox"},
-//
+//                {"fireFox"},
         });
     }
 
@@ -91,23 +90,22 @@ public class ParentTest {
 
             try {
                 log.info("Chrome will be started");
-                DesiredCapabilities dc = new DesiredCapabilities();
-                ChromeOptions chromeOptions = new ChromeOptions();
                 File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
                 System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
+                ChromeOptions chromeOptions = new ChromeOptions();
 
-//                dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-                if(dc.getPlatform().is(Platform.LINUX)) {
+                //additional setting for Chrome on Linux
+                if(Global.isPlatform(Platform.LINUX)){
                     chromeOptions.setBinary("/opt/google/chrome/chrome");
                     chromeOptions.addArguments("--no-sandbox");
                     chromeOptions.addArguments("--disable-dev-shm-usage");
                 }
+
                 chromeOptions.addArguments("--lang=en");
                 chromeOptions.addArguments("--start-maximized");
                 chromeOptions.addArguments("--ignore-certificate-errors");
                 chromeOptions.addArguments("--disable-popup-blocking");
                 chromeOptions.addArguments("--incognito");
-                chromeOptions.merge(dc);
                 driver = new ChromeDriver(chromeOptions);
                 log.info("Chrome is started");
             }

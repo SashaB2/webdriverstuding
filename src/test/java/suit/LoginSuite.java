@@ -11,9 +11,9 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         ValidLoginTest.class,
-        LoginPageFunctionalityTest.class,
-        MainPageContentTest.class,
-        DragAndDropTest.class,
+//        LoginPageFunctionalityTest.class,
+//        MainPageContentTest.class,
+//        DragAndDropTest.class,
 
 })
 public class LoginSuite {

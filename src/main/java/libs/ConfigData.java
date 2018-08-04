@@ -1,5 +1,7 @@
 package libs;
 
+import org.openqa.selenium.Platform;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,7 +9,15 @@ import java.util.Properties;
 
 public class ConfigData {
 
-    private static String configFile = "./src/main/resources/config.properties";
+    private static String configFile;
+
+    static{
+        if(Global.isPlatform(Platform.WIN10)) {
+            configFile = "./src/main/resources/configWindows.properties";
+        }else if(Global.isPlatform(Platform.WIN10)){
+            configFile = "./src/main/resources/configLinux.properties";
+        }
+    }
 
     /**
      * get value by key from config.properties
