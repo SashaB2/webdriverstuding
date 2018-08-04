@@ -29,7 +29,7 @@ public class ValidLoginTest extends ParentTest {
         //check if user logged -> if opened main page
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Manager HomePage");
         checkAcceptanceCriteria("User has not logged / main page has not opened", mainPage.getValueFromHeading(), "Guru99 Bank");
-        log.trace("User Logged");
+        log.trace("User logged");
     }
 
 }
