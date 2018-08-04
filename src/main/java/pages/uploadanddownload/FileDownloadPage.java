@@ -1,6 +1,8 @@
 package pages.uploadanddownload;
 
 import libs.ConfigData;
+import libs.Global;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,7 +34,15 @@ public class FileDownloadPage extends ParentPage {
      * Example real wget command in windows cmd = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
      */
     public void downloadFileFromYahooPage(){
-        String wgetCommand = "C:\\CV\\webdriverstuding\\drivers\\wget\\wget.exe -P C:\\CV --no-check-certificate";
+        String wgetCommand = "";
+
+        if(Global.isPlatform(Platform.WIN10)) {
+            wgetCommand = "C:\\CV\\webdriverstuding\\drivers\\wget\\wget.exe -P C:\\CV --no-check-certificate";
+        }
+        else if(Global.isPlatform(Platform.LINUX)){
+            wgetCommand = ".drivers/wget/wget -P \\opt --no-check-certificate";
+        }
+
         actionsWithWebElements.downloadFile(DownloadLinkId, wgetCommand);
     }
 
