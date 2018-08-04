@@ -1,5 +1,7 @@
 package parenttest;
 
+import libs.ConfigData;
+import libs.Global;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
@@ -8,12 +10,12 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -77,31 +79,28 @@ public class ParentTest {
         return Arrays.asList(new Object[][]{
                 {"chrome"},
 //                {"fireFox"},
-//
         });
     }
 
     @Before
     public void setUp(){
-
         pathToScreenShot = "./target/screenshot/" + this.getClass().getPackage().getName() + "/" + this.getClass().getSimpleName() + this.testName.getMethodName() + ".jpg";
 
         if(browser.equals("chrome")){
+
             try {
                 log.info("Chrome will be started");
-                    File fileFF = new File("./drivers/chromedriver.exe");
-//                File fileFF = new File("./drivers/chromedriver");
+                File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
                 System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
-
-//                DesiredCapabilities dc = new DesiredCapabilities();
-//                dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-
                 ChromeOptions chromeOptions = new ChromeOptions();
 
-//                chromeOptions.setBinary("/opt/google/chrome/chrome");
-//                chromeOptions.addArguments("--no-sandbox");
-//                chromeOptions.addArguments("--disable-dev-shm-usage");
-//                chromeOptions.merge(dc);
+                //additional setting for Chrome on Linux
+                if(Global.isPlatform(Platform.LINUX)){
+                    chromeOptions.setBinary("/opt/google/chrome/chrome");
+                    chromeOptions.addArguments("--no-sandbox");
+                    chromeOptions.addArguments("--disable-dev-shm-usage");
+                }
+
                 chromeOptions.addArguments("--lang=en");
                 chromeOptions.addArguments("--start-maximized");
                 chromeOptions.addArguments("--ignore-certificate-errors");
@@ -114,27 +113,11 @@ public class ParentTest {
                 log.error("error to start GChrome", e);
             }
         }
-        else if ("IE".equals(browser)) {
-
-            try {
-                log.info("IE will be started");
-                File file1 = new File("./drivers/IEDriverServer.exe");
-                System.setProperty("webdriver.ie.driver", file1.getAbsolutePath());
-                DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-                caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-                caps.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "http://v3.qalight.com.ua/login");
-                driver = new InternetExplorerDriver(caps);
-                log.info(" IE is started");
-            }
-            catch (Exception e){
-                log.error("error to start InternetExplorer", e);
-            }
-        }
         else if ("fireFox".equals(browser)) {
 
             try {
                 log.info("FireFox will be started");
-                File fileFF = new File("./drivers/geckodriver.exe");
+                File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
                 System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
                 FirefoxProfile profile = new FirefoxProfile();
                 profile.setPreference("browser.startup.page", 0); // Empty start page
@@ -180,11 +163,11 @@ public class ParentTest {
             screenShots.screenShot(pathToScreenShot, driver);
         }
 
-//        driver.quit();
+        driver.quit();
 
     }
 
-    public void checkAcceptanceCriteria(String message, String expected, String actual){
+    public void checkAcceptanceCriteria(String message, String actual, String expected){
 
         if(!expected.equals(actual)){
 
@@ -192,19 +175,18 @@ public class ParentTest {
 
         }
 
-//        Assert.assertThat(message, expected, is (actual));
         Assert.assertThat(message , actual, is (expected));
         isTestPass = true;
     }
 
-    public void checkAcceptanceCriteria(String message, boolean expected, boolean actual){
+    public void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
 
         if(expected != actual){
 
             screenShots.screenShot(pathToScreenShot, driver);
         }
 
-        Assert.assertThat(message, expected, is(actual));
+        Assert.assertThat(message, actual, is(expected));
         isTestPass = true;
 
     }
