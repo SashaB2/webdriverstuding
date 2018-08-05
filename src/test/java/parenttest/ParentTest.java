@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -77,8 +78,8 @@ public class ParentTest {
     @Parameterized.Parameters
     public static Collection testData() throws IOException{
         return Arrays.asList(new Object[][]{
-                {"chrome"},
-//                {"fireFox"},
+//                {"chrome"},
+                {"fireFox"},
         });
     }
 
@@ -120,6 +121,12 @@ public class ParentTest {
                 log.info("FireFox will be started");
                 File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
                 System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+
+//                if(Global.isPlatform(Platform.LINUX)) {
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.setBinary("/opt/firefox/firefox");
+//                }
+
                 FirefoxProfile profile = new FirefoxProfile();
                 profile.setPreference("browser.startup.page", 0); // Empty start page
                 profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
