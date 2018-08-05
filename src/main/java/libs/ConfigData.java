@@ -14,7 +14,7 @@ public class ConfigData {
     static{
         if(Global.isPlatform(Platform.WIN10)) {
             configFile = "./src/main/resources/configWindows.properties";
-        }else if(Global.isPlatform(Platform.WIN10)){
+        }else if(Global.isPlatform(Platform.LINUX)){
             configFile = "./src/main/resources/configLinux.properties";
         }
     }
