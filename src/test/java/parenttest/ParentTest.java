@@ -95,12 +95,12 @@ public class ParentTest {
                 ChromeOptions chromeOptions = new ChromeOptions();
 
                 //additional setting for Chrome on Linux
-//                if(Global.isPlatform(Platform.LINUX)){
+                if(Global.isPlatform(Platform.LINUX)){
                     chromeOptions.setBinary(new File("/opt/google/chrome/chrome"));
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--no-sandbox");
                     chromeOptions.addArguments("--disable-dev-shm-usage");
-//                }
+                }
 
                 chromeOptions.addArguments("--lang=en");
                 chromeOptions.addArguments("--start-maximized");
