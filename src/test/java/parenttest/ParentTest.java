@@ -14,6 +14,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -122,9 +123,12 @@ public class ParentTest {
                 File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
                 System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
 
+                FirefoxBinary firefoxBinary = new FirefoxBinary();
+                firefoxBinary.addCommandLineOptions("--headless");
+
 //                if(Global.isPlatform(Platform.LINUX)) {
                     FirefoxOptions options = new FirefoxOptions();
-                    options.setBinary("/opt/firefox/firefox");
+                    options.setBinary(firefoxBinary);
 //                }
 
                 FirefoxProfile profile = new FirefoxProfile();
