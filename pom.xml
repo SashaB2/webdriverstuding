@@ -73,17 +73,12 @@
             <version>2.20.1</version>
             <type>maven-plugin</type>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-
 
     </dependencies>
 
     <!--add for selenium grid -->
     <build>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

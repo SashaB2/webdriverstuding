@@ -120,20 +120,21 @@ public class ParentTest {
 
             try {
                 log.info("FireFox will be started");
+
                 File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
                 System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
 
+                //for linux launching
                 FirefoxBinary firefoxBinary = new FirefoxBinary();
-                firefoxBinary.addCommandLineOptions("--headless");
-
-//                if(Global.isPlatform(Platform.LINUX)) {
-                    FirefoxOptions options = new FirefoxOptions();
+                FirefoxOptions options = new FirefoxOptions();
+                if(Global.isPlatform(Platform.LINUX)){
+                    firefoxBinary.addCommandLineOptions("--headless");
                     options.setBinary(firefoxBinary);
-//                }
+                }
 
                 FirefoxProfile profile = new FirefoxProfile();
-//                profile.setPreference("browser.startup.page", 0); // Empty start page
-//                profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
+                profile.setPreference("browser.startup.page", 0); // Empty start page
+                profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
                 driver = new FirefoxDriver(options);
                 log.info(" FireFox is started");
             }
