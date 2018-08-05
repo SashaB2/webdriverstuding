@@ -124,7 +124,7 @@ public class ParentTest {
 
 //                if(Global.isPlatform(Platform.LINUX)) {
                     FirefoxOptions options = new FirefoxOptions();
-                    options.setBinary("/opt/firefox/firefox");
+                    options.setBinary("/opt/firefox/");
 //                }
 
                 FirefoxProfile profile = new FirefoxProfile();
