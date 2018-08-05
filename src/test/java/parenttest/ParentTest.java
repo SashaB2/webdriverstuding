@@ -96,7 +96,7 @@ public class ParentTest {
 
                 //additional setting for Chrome on Linux
                 if(Global.isPlatform(Platform.LINUX)){
-                    chromeOptions.setBinary("/etc/bin/google-chrome");
+//                    chromeOptions.setBinary("/etc/bin/google-chrome");
                     chromeOptions.addArguments("--no-sandbox");
                     chromeOptions.addArguments("--disable-dev-shm-usage");
                 }
@@ -110,7 +110,7 @@ public class ParentTest {
                 log.info("Chrome is started");
             }
             catch (Exception e){
-                log.error("error to start GChrome", e);
+                log.error("error to start Chrome", e);
             }
         }
         else if ("fireFox".equals(browser)) {
