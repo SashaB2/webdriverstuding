@@ -27,7 +27,6 @@ public class InvalidDatePickerTest extends ParentTest {
     public static Collection testData(){
         return Arrays.asList(new Object[][]{
                 {"chrome", "", Keys.TAB, ""},
-//                {"chrome", "asdfghjk", Keys.TAB, "sdfsf"},  need a specific test on it, need to take current value from field. TO DO: in future
                 {"chrome", "01012000", Keys.TAB, "1059VB"},
                 {"chrome", "a1012000", Keys.RIGHT, "2359AM"},
                 {"chrome", "01012000", Keys.SHIFT, "2359AM"}, //verify on switch key

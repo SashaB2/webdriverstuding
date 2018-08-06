@@ -33,8 +33,7 @@ import pages.LoginPage;
 import pages.MainPage;
 import pages.datepickerpages.DatePickerPage;
 import pages.tablepages.MoneyRediffPage;
-import pages.uploadanddownload.FileDownloadPage;
-import pages.uploadanddownload.FileUploadSikuliPage;
+import pages.FileDownloadPage;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -61,7 +60,6 @@ public class ParentTest {
     public DatePickerPage datePickerPage;
     public BirthDateDemoPage birthDateDemoPage;
     public DragAndDropPage dragAndDropPage;
-    public FileUploadSikuliPage fileUploadSikuliPage;
     public FileDownloadPage fileDownloadPage;
     public MoneyRediffPage moneyRediffPage;
 
@@ -80,7 +78,7 @@ public class ParentTest {
     public static Collection testData() throws IOException{
         return Arrays.asList(new Object[][]{
                 {"chrome"},
-//                {"fireFox"},
+                {"fireFox"},
         });
     }
 
@@ -164,7 +162,6 @@ public class ParentTest {
         datePickerPage = new DatePickerPage(driver);
         birthDateDemoPage = new BirthDateDemoPage(driver);
         dragAndDropPage = new DragAndDropPage(driver);
-        fileUploadSikuliPage = new FileUploadSikuliPage(driver);
         fileDownloadPage = new FileDownloadPage(driver);
         moneyRediffPage = new MoneyRediffPage(driver);
     }

@@ -1,4 +1,4 @@
-package pages.uploadanddownload;
+package pages;
 
 import libs.ConfigData;
 import libs.Global;

@@ -42,14 +42,6 @@
             <version>3.14</version>
         </dependency>
 
-        <!-- for upload files-->
-        <!-- https://mvnrepository.com/artifact/com.sikulix/sikulixapi -->
-        <dependency>
-            <groupId>com.sikulix</groupId>
-            <artifactId>sikulixapi</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-
         <!-- mysql driver-->
         <dependency>
             <groupId>mysql</groupId>
@@ -76,33 +68,24 @@
     <!--add for selenium grid -->
     <build>
         <plugins>
-            <!--if not this plugin then maven use his own with lower version 2.12-->
+            <!--if not this plugin then maven use his own with lower version 2.12 and run test via test and -Dtest -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.21.0</version>
-                <configuration>
-                    <includes>
-                        <include>ValidLoginTest.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
-
-
-            <!--run selenium grid-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
+                <version>2.22.0</version>
                 <configuration>
                     <parallel>classes</parallel>
-                    <threadCount>5</threadCount>
+                    <threadCount>5</threadCount>   <!--for grid-->
+                    <includes>
+                        <include>LoginSuite.java</include>
+                    </includes>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>

@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
 
 import java.io.File;
 import java.io.IOException;
