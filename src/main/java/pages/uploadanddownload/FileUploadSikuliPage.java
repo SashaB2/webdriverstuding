@@ -26,15 +26,15 @@ public class FileUploadSikuliPage extends ParentPage{
     }
 
     public void handleWithUploadFile(){
-        String filePath = ConfigData.getConfigValue("FILE_PATH");
-        String inputFileName = "C:\\CV\\webdriverstuding\\src\\main\\java\\data\\testimage.jpg";
+        String configImageFilePath = ConfigData.getConfigValue("CONFIG_IMAGE_FILE_PATH");
+        String testFilePath = ConfigData.getConfigValue("TEST_FILE_PATH");
         Screen screen = new Screen();
-        Pattern fileInputTextBox = new Pattern(filePath + "fileTextBox.png");
-        Pattern openButton = new Pattern(filePath + "fileOpenButton.png");
+        Pattern fileInputTextBox = new Pattern(configImageFilePath + "fileTextBox.png");
+        Pattern openButton = new Pattern(configImageFilePath + "fileOpenButton.png");
 
         try {
             screen.wait(fileInputTextBox, 20);
-            screen.type(fileInputTextBox, inputFileName);
+            screen.type(fileInputTextBox, testFilePath);
             screen.click(openButton);
         }catch (FindFailed e){
             log.error("Cannot find element with sikuri", e);
