@@ -1,6 +1,5 @@
 package suit;
 
-import draganddrop.DragAndDropTest;
 import logintest.InvalidLoginTest;
 import logintest.LoginPageFunctionalityTest;
 import logintest.ValidLoginTest;
