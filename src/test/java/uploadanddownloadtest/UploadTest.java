@@ -25,7 +25,7 @@ public class UploadTest extends ParentTest {
         fileUploadSikuliPage.clickOnChooseFileButton();
         log.trace("Choose button clicked");
 
-//        fileUploadSikuliPage.handleWithUploadFile();
+        fileUploadSikuliPage.handleWithUploadFile();
 //        checkAcceptanceCriteria("File does not upload", "File Upload Successful", fileUploadSikuliPage.resultOfUploadFile());
 
     }

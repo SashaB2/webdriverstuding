@@ -27,7 +27,11 @@ public class FileUploadSikuliPage extends ParentPage{
 
     public void handleWithUploadFile(){
         String configImageFilePath = ConfigData.getConfigValue("CONFIG_IMAGE_FILE_PATH");
+        log.info(configImageFilePath);
+
         String testFilePath = ConfigData.getConfigValue("TEST_FILE_PATH");
+        log.info(testFilePath);
+
         Screen screen = new Screen();
         Pattern fileInputTextBox = new Pattern(configImageFilePath + "fileTextBox.png");
         Pattern openButton = new Pattern(configImageFilePath + "fileOpenButton.png");
