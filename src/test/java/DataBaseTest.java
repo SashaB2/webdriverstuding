@@ -27,6 +27,7 @@ public class DataBaseTest {
 
     @Test
     public void justTest() throws SQLException {
+        log.info("Start database test");
         HashMap<String, String> map = dataBase.getValue("select * from seleniumTable;", "login", "passWord");
 
         String login = "Sviridenko";

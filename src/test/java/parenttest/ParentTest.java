@@ -78,7 +78,7 @@ public class ParentTest {
     public static Collection testData() throws IOException{
         return Arrays.asList(new Object[][]{
                 {"chrome"},
-                {"fireFox"},
+//                {"fireFox"},
         });
     }
 

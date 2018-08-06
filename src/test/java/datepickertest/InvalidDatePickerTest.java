@@ -1,5 +1,6 @@
 package datepickertest;
 
+import libs.ConfigData;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.Keys;
@@ -35,15 +36,16 @@ public class InvalidDatePickerTest extends ParentTest {
     }
 
     @Test
-    public void validDatePickerTest(){
-
-        loginPage.loginQuickly();
+    public void invalidDatePickerTest(){
+        log.info("Start invalid DatePicker Test");
+        loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         mainPage.clickOnPartiallLink("Selenium");
         mainPage.clickOnPartiallLink("Selenium DatePicker Demo");
 
         //verify if page opens
         checkAcceptanceCriteria("Page title does not  coincide", "Select Date from DatePicker Demo Page", datePickerPage.getPageTitle());
         checkAcceptanceCriteria("Page with date picker does not open", "Open this page in Chrome", datePickerPage.headerOfBirthDateDemoPage());
+        log.trace("Opened DataPicker page");
 
         //input date, click button, input time
         datePickerPage.inputDateIntoDataPicker(inputtedDateInDatePicker);

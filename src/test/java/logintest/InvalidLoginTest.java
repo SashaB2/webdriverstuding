@@ -45,8 +45,11 @@ public class InvalidLoginTest extends ParentTest {
      */
     @Test
     public void invalidLogin(){
+        log.info("Start invalid login test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
+        log.trace("Login page opened");
+
         loginPage.inputLogin(login);
         loginPage.inputPassword(password);
         loginPage.clickOnLoginButton();
