@@ -53,7 +53,7 @@ public class ParentTest {
     //for external libraries
     private ScreenShots screenShots = new ScreenShots();
     private String pathToScreenShot;
-    private boolean isTestPass;
+    private boolean isTestPass = false;
 
     //for pages
     public LoginPage loginPage;
@@ -182,7 +182,7 @@ public class ParentTest {
 
     public void checkAcceptanceCriteria(String message, String actual, String expected){
 
-        if(!expected.equals(actual)){
+        if(!actual.equals(expected)){
 
             screenShots.screenShot(pathToScreenShot, driver);
 
@@ -194,7 +194,7 @@ public class ParentTest {
 
     public void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
 
-        if(expected != actual){
+        if(actual != expected){
 
             screenShots.screenShot(pathToScreenShot, driver);
         }
