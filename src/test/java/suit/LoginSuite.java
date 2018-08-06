@@ -10,8 +10,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         ValidLoginTest.class,
-        LoginPageFunctionalityTest.class,
-        DragAndDropTest.class,
+//        LoginPageFunctionalityTest.class,
+//        DragAndDropTest.class,
 //        InvalidDatePickerTest.class
 
 })
