@@ -11,11 +11,11 @@ import uploadanddownloadtest.UploadTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ValidLoginTest.class,
-//        UploadTest.class
-        LoginPageFunctionalityTest.class,
+//        ValidLoginTest.class,
+        UploadTest.class,
+//        LoginPageFunctionalityTest.class,
 //        MainPageContentTest.class,
-        DragAndDropTest.class,
+//        DragAndDropTest.class,
 
 })
 public class LoginSuite {
