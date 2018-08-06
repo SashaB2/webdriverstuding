@@ -22,7 +22,8 @@ public class ValidLoginTest extends ParentTest {
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
         log.trace("Login page opened");
 
-        loginPage.inputLogin(ConfigData.getConfigValue("login"));
+       // loginPage.inputLogin(ConfigData.getConfigValue("login"));
+        loginPage.inputLogin("WEFEWFWE");
         loginPage.inputPassword(ConfigData.getConfigValue("password"));
         loginPage.clickOnLoginButton();
 
