@@ -39,8 +39,8 @@ public class InvalidDatePickerTest extends ParentTest {
     public void invalidDatePickerTest(){
         log.info("Start invalid DatePicker Test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
-        mainPage.clickOnPartiallLink("Selenium");
-        mainPage.clickOnPartiallLink("Selenium DatePicker Demo");
+        loginPage.clickOnPartiallLink("Selenium");
+        loginPage.clickOnPartiallLink("Selenium DatePicker Demo");
 
         //verify if page opens
         checkAcceptanceCriteria("Page title does not  coincide", "Select Date from DatePicker Demo Page", datePickerPage.getPageTitle());

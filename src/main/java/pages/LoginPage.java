@@ -4,10 +4,15 @@ import libs.ConfigData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.ParentPage;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * use to login in Guru99 Bank
+ * use to open training pages with examples
+ */
 public class LoginPage extends ParentPage {
 
     public LoginPage(WebDriver driver) {
@@ -26,6 +31,8 @@ public class LoginPage extends ParentPage {
     @FindBy(name = "btnReset")
     WebElement ResetButtonName;
 
+    @FindBy(tagName = "a")
+    List<WebElement> allLinksTagName;
 
     public void openLoginPage(String loginPageUrl){
         driver.navigate().to(loginPageUrl);
@@ -41,6 +48,22 @@ public class LoginPage extends ParentPage {
 
     public void clickOnLoginButton(){
         actionsWithWebElements.buttonClick(LoginButtonName);
+    }
+
+    public void clickOnResetButton(){
+        actionsWithWebElements.buttonClick(ResetButtonName);
+    }
+
+    public String getValueOfUserIdField(){
+        return UserIdFieldName.getAttribute("value");
+    }
+
+    public String getValueOfpasswordField(){
+        return PasswordFieldName.getAttribute("value");
+    }
+
+    public void clickOnTheHeader(){
+        actionsWithWebElements.buttonClick(PageHeading);
     }
 
     public String getTextFromInvalidPasswordAlertMessage(){
@@ -59,74 +82,19 @@ public class LoginPage extends ParentPage {
         loginQuickly(ConfigData.getConfigValue("login"), ConfigData.getConfigValue("password"));
     }
 
+    /**
+     * Links also is in drop-down menu so that we processed to others page
+     * @param linkName
+     */
+    public void clickOnPartiallLink(String linkName){
+        for (WebElement link : allLinksTagName){
+            if( (link.getText()).equals(linkName) ){
+                link.click();
+                break;
+            }
+        }
+    }
 
-
-
-
-//    @FindBy(xpath = "//input[@name='_username']")
-//    WebElement InputFieldXpath;
-//
-//    @FindBy(id = "password")
-//    WebElement PasswordFieldId;
-//
-//    @FindBy(xpath = "//button[@type='submit']")
-//    WebElement SubmitButtonXpath;
-//
-//    public void openLoginPage(){
-//
-//        try {
-//        driver.get(ConfigData.getConfigValue("base_url"));
-//        }
-//        catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//    }
-//
-//    public String getLoginPageTitle(){
-//
-//            try {
-//                return actionsWithWebElements.getPageTitle();
-//            }
-//            catch (Exception e){
-//                return null;
-//            }
-//
-//    }
-//
-//    public void inputLogin(String login){
-//        actionsWithWebElements.inputValueInField(InputFieldXpath, login);
-//    }
-//
-//    public void inputPassword(String password){
-//        actionsWithWebElements.inputValueInField(PasswordFieldId, password);
-//    }
-//
-//    public void clickOnsubmitButton(){
-//        actionsWithWebElements.buttonClick(SubmitButtonXpath);
-//    }
-//
-//    /**
-//     * Quckly login
-//     * @param login
-//     * @param password
-//     */
-//    public void loginQuick(String login, String password){
-//        openLoginPage();
-//        inputLogin(login);
-//        inputPassword(password);
-//        clickOnsubmitButton();
-//    }
-//
-//    /**
-//     * login quickly without parameters
-//     */
-//    public void loginQuick(){
-//        openLoginPage();
-//        inputLogin(ConfigData.getConfigValue("login"));
-//        inputPassword(ConfigData.getConfigValue("password"));
-//        clickOnsubmitButton();
-//    }
 
 
 

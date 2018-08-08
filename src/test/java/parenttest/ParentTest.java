@@ -30,8 +30,8 @@ import java.net.URL;
 import pages.DragAndDropPage;
 import pages.datepickerpages.BirthDateDemoPage;
 import pages.LoginPage;
-import pages.MainPage;
 import pages.datepickerpages.DatePickerPage;
+import pages.gurubank.ManagerPage;
 import pages.tablepages.MoneyRediffPage;
 import pages.FileDownloadPage;
 
@@ -47,7 +47,7 @@ public class ParentTest {
     //for driver
     private WebDriver driver;
     private String browser;
-    public Logger log;
+    protected Logger log;
 
     //for external libraries
     private ScreenShots screenShots = new ScreenShots();
@@ -55,13 +55,13 @@ public class ParentTest {
     private boolean isTestPass = false;
 
     //for pages
-    public LoginPage loginPage;
-    public MainPage mainPage;
-    public DatePickerPage datePickerPage;
-    public BirthDateDemoPage birthDateDemoPage;
-    public DragAndDropPage dragAndDropPage;
-    public FileDownloadPage fileDownloadPage;
-    public MoneyRediffPage moneyRediffPage;
+    protected LoginPage loginPage;
+    protected DatePickerPage datePickerPage;
+    protected BirthDateDemoPage birthDateDemoPage;
+    protected DragAndDropPage dragAndDropPage;
+    protected FileDownloadPage fileDownloadPage;
+    protected MoneyRediffPage moneyRediffPage;
+    protected ManagerPage managerPage;
 
 
     public ParentTest(String browser){
@@ -79,6 +79,7 @@ public class ParentTest {
         return Arrays.asList(new Object[][]{
                 {"chrome"},
 //                {"fireFox"},
+//                {"remote"}
         });
     }
 
@@ -86,84 +87,96 @@ public class ParentTest {
     public void setUp(){
         pathToScreenShot = "./target/screenshot/" + this.getClass().getPackage().getName() + "/" + this.getClass().getSimpleName() + this.testName.getMethodName() + ".jpg";
 
-        if(browser.equals("chrome")){
+        switch (browser) {
 
-            try {
-                log.info("Chrome will be started");
-                File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
-                System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
-                ChromeOptions chromeOptions = new ChromeOptions();
+            case "chrome":
 
-                //additional setting for Chrome on Linux
-                if(Global.isPlatform(Platform.LINUX)){
-                    chromeOptions.setBinary(new File("/opt/google/chrome/chrome"));
-                    chromeOptions.addArguments("--headless");
-                    chromeOptions.addArguments("--no-sandbox");
-                    chromeOptions.addArguments("--disable-dev-shm-usage");
+                try {
+                    log.info("Chrome will be started");
+                    File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
+                    System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
+                    ChromeOptions chromeOptions = new ChromeOptions();
+
+                    //additional setting for Chrome on Linux
+                    if(Global.isPlatform(Platform.LINUX)){
+                        chromeOptions.setBinary(new File("/opt/google/chrome/chrome"));
+                        chromeOptions.addArguments("--headless");
+                        chromeOptions.addArguments("--no-sandbox");
+                        chromeOptions.addArguments("--disable-dev-shm-usage");
+                    }
+
+                    chromeOptions.addArguments("--lang=en");
+//                chromeOptions.addArguments("--start-maximized");
+                    chromeOptions.addArguments("--ignore-certificate-errors");
+                    chromeOptions.addArguments("--disable-popup-blocking");
+                    chromeOptions.addArguments("--incognito");
+                    driver = new ChromeDriver(chromeOptions);
+                    log.info("Chrome is started");
+                } catch (Exception e) {
+                    log.error("error to start Chrome", e);
                 }
 
-                chromeOptions.addArguments("--lang=en");
-                chromeOptions.addArguments("--start-maximized");
-                chromeOptions.addArguments("--ignore-certificate-errors");
-                chromeOptions.addArguments("--disable-popup-blocking");
-                chromeOptions.addArguments("--incognito");
-                driver = new ChromeDriver(chromeOptions);
-                log.info("Chrome is started");
-            }
-            catch (Exception e){
-                log.error("error to start Chrome", e);
-            }
-        }
-        else if ("fireFox".equals(browser)) {
+                break;
 
-            try {
-                log.info("FireFox will be started");
+            case "fireFox":
 
-                File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
-                System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+                try {
+                    log.info("FireFox will be started");
 
-                //for linux launching
-                FirefoxBinary firefoxBinary = new FirefoxBinary();
-                FirefoxOptions options = new FirefoxOptions();
-                if(Global.isPlatform(Platform.LINUX)){
-                    firefoxBinary.addCommandLineOptions("--headless");
-                    options.setBinary(firefoxBinary);
+                    File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
+                    System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+
+                    //for linux launching
+                    FirefoxBinary firefoxBinary = new FirefoxBinary();
+                    FirefoxOptions options = new FirefoxOptions();
+
+                    if(Global.isPlatform(Platform.LINUX)){
+                        firefoxBinary.addCommandLineOptions("--headless");
+                        options.setBinary(firefoxBinary);
+                    }
+
+                    FirefoxProfile profile = new FirefoxProfile();
+                    profile.setPreference("browser.startup.page", 0); // Empty start page
+                    profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
+                    driver = new FirefoxDriver(options);
+                    log.info(" FireFox is started");
+                } catch (Exception e) {
+                    log.error("error to start FireFox", e);
                 }
 
-                FirefoxProfile profile = new FirefoxProfile();
-                profile.setPreference("browser.startup.page", 0); // Empty start page
-                profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
-                driver = new FirefoxDriver(options);
-                log.info(" FireFox is started");
-            }
-            catch (Exception e){
-                log.error("error to start FireFox", e);
-            }
-        }
-        else if("remote".equals(browser)){
+                break;
 
-            try{
-                log.info("remote browser will be started");
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
-                log.info("remote browser is started");
-            }
-            catch (MalformedURLException e) {
-                log.error("can not connect to remote server", e);
-            }
+            //To Do: develop more pretty grid
+            case "remote":
 
+                try {
+                    log.info("remote browser will be started");
+                    driver = new RemoteWebDriver(new URL("http://localhost:4445/wd/hub"), DesiredCapabilities.chrome());
+                    log.info("remote browser is started");
+                } catch (MalformedURLException e) {
+                    log.error("can not connect to remote server", e);
+                }
+
+                break;
         }
 
         //implicitly wait
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        //for load pages
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        //delete cookies
+        driver.manage().deleteAllCookies();
+        //maximize window
+        driver.manage().window().maximize();
 
         //Page initialization
         loginPage = new LoginPage(driver);
-        mainPage = new MainPage(driver);
         datePickerPage = new DatePickerPage(driver);
         birthDateDemoPage = new BirthDateDemoPage(driver);
         dragAndDropPage = new DragAndDropPage(driver);
         fileDownloadPage = new FileDownloadPage(driver);
         moneyRediffPage = new MoneyRediffPage(driver);
+        managerPage = new ManagerPage(driver);
     }
 
     @After
@@ -177,7 +190,7 @@ public class ParentTest {
 
     }
 
-    public void checkAcceptanceCriteria(String message, String actual, String expected){
+    protected void checkAcceptanceCriteria(String message, String actual, String expected){
 
         if(!actual.equals(expected)){
 
@@ -189,7 +202,7 @@ public class ParentTest {
         isTestPass = true;
     }
 
-    public void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
+    protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
 
         if(actual != expected){
 

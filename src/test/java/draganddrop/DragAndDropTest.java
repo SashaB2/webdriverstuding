@@ -14,8 +14,8 @@ public class DragAndDropTest extends ParentTest {
     public void validDragAndDropTest(){
         log.info("Start valid Drag and Drop test DatePicker Test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
-        mainPage.clickOnPartiallLink("Selenium");
-        mainPage.clickOnPartiallLink("Drag and Drop Action");
+        loginPage.clickOnPartiallLink("Selenium");
+        loginPage.clickOnPartiallLink("Drag and Drop Action");
 
         //verify if page opens
         checkAcceptanceCriteria("Page title does not  coincide", "Drag and Drop Action", dragAndDropPage.getPageTitle());

@@ -16,8 +16,8 @@ public class RediffMoneyTest extends ParentTest {
         log.trace("Money Rediff page opened");
 
         //check if price more than twi thousand is
-        System.out.println(moneyRediffPage.getMaxPriceOfTable());
         checkAcceptanceCriteria("No 2000 price available", true, moneyRediffPage.getMaxPriceOfTable() > 2000);
+
 
     }
 }
