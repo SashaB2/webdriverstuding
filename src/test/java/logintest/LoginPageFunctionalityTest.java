@@ -1,6 +1,7 @@
 package logintest;
 
 import libs.ConfigData;
+import libs.ExcelData;
 import org.junit.Test;
 import parenttest.ParentTest;
 
@@ -19,7 +20,7 @@ public class LoginPageFunctionalityTest extends ParentTest {
         //open login page
         log.info("Verify [Reset] Button on Login page");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
-        checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
+        checkAcceptanceCriteria("Login page hasn't opened", "Guru99 Bank Home Page", loginPage.getPageTitle());
         log.trace("login page opened");
 
         //input some text in userId and password fields
@@ -41,5 +42,30 @@ public class LoginPageFunctionalityTest extends ParentTest {
         checkAcceptanceCriteria("Password field was not cleared after clicked reset button", "", loginPage.getValueOfpasswordField());
         log.trace("Password field was cleared after clicked reset button");
 
+    }
+
+    @Test
+    public void infoHintsAppearedTest(){
+        //open login page
+        log.info("check if info hint appears when UserId and Passwords fields are blank");
+        loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
+        checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
+        log.trace("login page opened");
+
+        loginPage.clickOnUserIdField();
+        loginPage.clickOnThePageHeader();
+
+        checkAcceptanceCriteria("Info hint for UserId field did not appear", true, loginPage.isPresentInfoHintOfUserIdField());
+        log.trace("Info hint for UserId field appeared");
+        checkAcceptanceCriteria("Text of info hint for UserId field is correct", ExcelData.getData("loginPage").get("infoHintForUserIdField"), loginPage.getTextOfInfoHintOfUserIdField());
+        log.trace("Text of info hint for UserId field is correct");
+
+        loginPage.clickOnPasswordField();
+        loginPage.clickOnThePageHeader();
+
+        checkAcceptanceCriteria("Info hint for Password field did not appear", true, loginPage.isPresentInfoHintOfPasswodField());
+        log.trace("Info hint for Password field appeared");
+        checkAcceptanceCriteria("Text of info hint for Password field is correct", ExcelData.getData("loginPage").get("infoHintForPasswordIdField"), loginPage.getTextOfInfoHintOfPasswordField());
+        log.trace("Text of info hint for Password field is correct");
     }
 }

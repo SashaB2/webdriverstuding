@@ -31,6 +31,12 @@ public class LoginPage extends ParentPage {
     @FindBy(name = "btnReset")
     WebElement ResetButtonName;
 
+    @FindBy(id = "message23")
+    WebElement InfoHintOfUserIdFieldID;
+
+    @FindBy(id = "message18")
+    WebElement InfoHintOfUPasswordFieldID;
+
     @FindBy(tagName = "a")
     List<WebElement> allLinksTagName;
 
@@ -62,13 +68,41 @@ public class LoginPage extends ParentPage {
         return PasswordFieldName.getAttribute("value");
     }
 
-    public void clickOnTheHeader(){
+    public String getTextOfInfoHintOfUserIdField(){
+        return InfoHintOfUserIdFieldID.getText();
+    }
+
+    public String getTextOfInfoHintOfPasswordField(){
+        return InfoHintOfUPasswordFieldID.getText();
+    }
+
+    public void clickOnUserIdField(){
+        actionsWithWebElements.buttonClick(UserIdFieldName);
+    }
+
+    public void clickOnPasswordField(){
+        actionsWithWebElements.buttonClick(PasswordFieldName);
+    }
+
+    public boolean isPresentInfoHintOfUserIdField(){
+        return actionsWithWebElements.isElementPresent(InfoHintOfUserIdFieldID);
+    }
+
+    public boolean isPresentInfoHintOfPasswodField(){
+        return actionsWithWebElements.isElementPresent(InfoHintOfUPasswordFieldID);
+    }
+
+    public void clickOnThePageHeader(){
         actionsWithWebElements.buttonClick(PageHeading);
     }
+
+
 
     public String getTextFromInvalidPasswordAlertMessage(){
         return actionsWithWebElements.getAlertText();
     }
+
+
 
 
     public void loginQuickly(String login, String password){

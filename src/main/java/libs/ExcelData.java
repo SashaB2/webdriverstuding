@@ -15,13 +15,24 @@ public class ExcelData {
 
     private static String excelFile = "./src/main/java/data/testData.xls";
 
+
+    /**
+     * without file location param
+     * @param sheetName
+     * @return
+     */
+    public static HashMap<String, String> getData(String sheetName){
+        return getData(excelFile, sheetName);
+    }
+
+
     /**
      * with file location param
      * @param fileLocation
      * @param sheetName
      * @return
      */
-    public static HashMap<String, String> getData(String fileLocation, String sheetName){
+    private static HashMap<String, String> getData(String fileLocation, String sheetName){
 
         HashMap<String, String> valuesOfSheet = new HashMap<String, String>();
 
@@ -73,16 +84,5 @@ public class ExcelData {
         return valuesOfSheet;
 
     }
-
-    /**
-     * without file location param
-     * @param sheetName
-     * @return
-     */
-    public static HashMap<String, String> getData(String sheetName){
-        return getData(excelFile, sheetName);
-    }
-
-
 
 }
