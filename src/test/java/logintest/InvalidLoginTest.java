@@ -31,11 +31,11 @@ public class InvalidLoginTest extends ParentTest {
         return Arrays.asList(new Object[][]{
                 {"chrome", "", ""},
                 {"chrome", ConfigData.getConfigValue("login"), ""},
-//                {"chrome", ConfigData.getConfigValue("login"), "123456"},
-//                {"chrome", "", ConfigData.getConfigValue("password")},
-//                {"chrome", "qwerty", "dvbdf"},
-//                {"chrome", "admin", "admin"},
-//                {"chrome", "admin", "123456"}
+                {"chrome", ConfigData.getConfigValue("login"), "123456"},
+                {"chrome", "", ConfigData.getConfigValue("password")},
+                {"chrome", "qwerty", "dvbdf"},
+                {"chrome", "admin", "admin"},
+                {"chrome", "admin", "123456"}
         });
     }
 
