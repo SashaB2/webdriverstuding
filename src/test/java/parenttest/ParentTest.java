@@ -1,5 +1,6 @@
 package parenttest;
 
+import io.qameta.allure.Step;
 import libs.ConfigData;
 import libs.Global;
 import org.apache.log4j.Logger;
@@ -190,6 +191,7 @@ public class ParentTest {
 
     }
 
+    @Step("Message: {0}, Actual: {1}, Expected: {2}")
     protected void checkAcceptanceCriteria(String message, String actual, String expected){
 
         if(!actual.equals(expected)){
@@ -202,6 +204,7 @@ public class ParentTest {
         isTestPass = true;
     }
 
+    @Step("Message: {0}, Actual: {1}, Expected: {2}")
     protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
 
         if(actual != expected){
