@@ -22,6 +22,7 @@ public class ValidLoginLogoutTest extends ParentTest {
     @Severity(SeverityLevel.BLOCKER)
     @Epic("Login user")
     public void validLoginLogoutTest(){
+        log.info("Start to verify Valid login");
         //open login page
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");

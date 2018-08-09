@@ -20,6 +20,7 @@ public class DragAndDropTest extends ParentTest {
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Bank deposit anf loan")
     public void validDragAndDropTest(){
+        log.info("Start valid Drag and Drop test DatePicker Test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         loginPage.clickOnPartiallLink("Selenium");
         loginPage.clickOnPartiallLink("Drag and Drop Action");

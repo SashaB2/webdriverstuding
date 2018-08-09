@@ -1,5 +1,9 @@
 package logintest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import libs.ConfigData;
 import libs.ExcelData;
 import org.junit.Assert;
@@ -45,6 +49,8 @@ public class InvalidLoginTest extends ParentTest {
      * in the future maybe rewrite to use multiple data from excel and SpreadsheetData library
      */
     @Test
+    @Description("Start invalid login test")
+    @Severity(SeverityLevel.CRITICAL)
     public void invalidLogin(){
         log.info("Start invalid login test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));

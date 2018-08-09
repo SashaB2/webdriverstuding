@@ -1,4 +1,4 @@
-package suit;
+package suites;
 
 
 import org.junit.runner.RunWith;

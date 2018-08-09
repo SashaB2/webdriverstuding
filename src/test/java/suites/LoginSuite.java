@@ -1,4 +1,4 @@
-package suit;
+package suites;
 
 import logintest.InvalidLoginTest;
 import logintest.LoginPageFunctionalityTest;
@@ -9,8 +9,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         ValidLoginLogoutTest.class,
-//        LoginPageFunctionalityTest.class,
-//        InvalidLoginTest.class
+        LoginPageFunctionalityTest.class,
+        InvalidLoginTest.class
 })
 public class LoginSuite {
 }

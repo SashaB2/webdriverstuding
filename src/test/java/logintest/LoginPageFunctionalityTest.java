@@ -1,5 +1,9 @@
 package logintest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import libs.ConfigData;
 import libs.ExcelData;
 import org.junit.Test;
@@ -18,9 +22,11 @@ public class LoginPageFunctionalityTest extends ParentTest {
 
 
     @Test
+    @Description("Verify [Reset] Button on Login page")
+    @Severity(SeverityLevel.NORMAL)
     public void resetButtonTest(){
         //open login page
-        log.info("Verify [Reset] Button on Login page");
+        log.info("Start to verify [Reset] button");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         checkAcceptanceCriteria("Login page hasn't opened", "Guru99 Bank Home Page", loginPage.getPageTitle());
 
@@ -40,9 +46,11 @@ public class LoginPageFunctionalityTest extends ParentTest {
     }
 
     @Test
+    @Description("check if info hint appears when UserId and Passwords fields are blank")
+    @Severity(SeverityLevel.TRIVIAL)
     public void infoHintsAppearedTest(){
         //open login page
-        log.info("check if info hint appears when UserId and Passwords fields are blank");
+        log.info("Start to verify \"Info Hint\" button");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
 

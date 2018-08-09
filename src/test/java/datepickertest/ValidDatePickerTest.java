@@ -1,5 +1,8 @@
 package datepickertest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import libs.ConfigData;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
@@ -37,6 +40,8 @@ public class ValidDatePickerTest extends ParentTest {
     }
 
     @Test
+    @Description("Start valid DatePicker Test")
+    @Severity(SeverityLevel.NORMAL)
     public void validDatePickerTest(){
         log.info("Start valid DatePicker Test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));

@@ -1,5 +1,8 @@
 package downloadtest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parenttest.ParentTest;
 
@@ -10,8 +13,10 @@ public class DownloadTest extends ParentTest {
     }
 
     @Test
+    @Description("Open Yahoo download page")
+    @Severity(SeverityLevel.CRITICAL)
     public void downloadFileOfYahoo(){
-        log.info("Open Yahoo download page");
+        log.info("Start to verify download file of Yahoo download page");
         fileDownloadPage.navigateToYahooDownloadPage();
         checkAcceptanceCriteria("Yahoo download page has not benn opened", "Selenium WebDriver Test", fileDownloadPage.getPageTitle());
 
