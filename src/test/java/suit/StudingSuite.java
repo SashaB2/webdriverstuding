@@ -3,7 +3,6 @@ package suit;
 import datepickertest.InvalidDatePickerTest;
 import datepickertest.ValidDatePickerTest;
 import downloadtest.DownloadTest;
-import draganddrop.DragAndDropTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import pages.DragAndDropPage;
@@ -16,9 +15,7 @@ import tabletest.RediffMoneyTest;
         DragAndDropTest.class,
         InvalidDatePickerTest.class,
         ValidDatePickerTest.class,
-        InvalidDatePickerTest.class,
-        ValidDatePickerTest.class
-//        DownloadTest.class
+        InvalidDatePickerTest.class
 
 })
 
