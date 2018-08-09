@@ -30,6 +30,9 @@ public class ValidLoginLogoutTest extends ParentTest {
         checkAcceptanceCriteria("Login page hasn't opened", managerPage.getPageTitle(), "Guru99 Bank Manager HomePage");
         checkAcceptanceCriteria("User has not Logged / main page has not opened", managerPage.getValueFromHeading(), "Guru99 Bank");
         log.trace("User Logged, Main page opened");
+        //check if corresponded user logged -> if opened main page
+        checkAcceptanceCriteria("User id does not coincide on Manager Page", managerPage.getLoggedUserID(), "Manger Id : " + ConfigData.getConfigValue("login"));
+        log.trace("User Id coincide with ID of Main page");
 
         log.info("Log out verification");
         managerPage.clickOnLogoutLink();

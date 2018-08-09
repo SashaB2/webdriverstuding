@@ -84,7 +84,7 @@
                 <version>2.22.0</version>
                 <configuration>
                     <parallel>classes</parallel>
-                    <threadCount>5</threadCount>   <!--for grid-->
+                    <threadCount>3</threadCount>   <!--for multiple running-->
                     <includes>
                         <include>LoginSuite.java</include>
                     </includes>

@@ -32,6 +32,7 @@ import pages.datepickerpages.BirthDateDemoPage;
 import pages.LoginPage;
 import pages.datepickerpages.DatePickerPage;
 import pages.gurubank.ManagerPage;
+import pages.gurubank.NewCustomerPage;
 import pages.tablepages.MoneyRediffPage;
 import pages.FileDownloadPage;
 
@@ -62,6 +63,7 @@ public class ParentTest {
     protected FileDownloadPage fileDownloadPage;
     protected MoneyRediffPage moneyRediffPage;
     protected ManagerPage managerPage;
+    protected NewCustomerPage newCustomerPage;
 
 
     public ParentTest(String browser){
@@ -106,7 +108,7 @@ public class ParentTest {
                     }
 
                     chromeOptions.addArguments("--lang=en");
-//                chromeOptions.addArguments("--start-maximized");
+                    chromeOptions.addArguments("--start-maximized");
                     chromeOptions.addArguments("--ignore-certificate-errors");
                     chromeOptions.addArguments("--disable-popup-blocking");
                     chromeOptions.addArguments("--incognito");
@@ -128,17 +130,18 @@ public class ParentTest {
 
                     //for linux launching
                     FirefoxBinary firefoxBinary = new FirefoxBinary();
-                    FirefoxOptions options = new FirefoxOptions();
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.addArguments("--start-maximized");
 
                     if(Global.isPlatform(Platform.LINUX)){
                         firefoxBinary.addCommandLineOptions("--headless");
-                        options.setBinary(firefoxBinary);
+                        firefoxOptions.setBinary(firefoxBinary);
                     }
 
                     FirefoxProfile profile = new FirefoxProfile();
                     profile.setPreference("browser.startup.page", 0); // Empty start page
                     profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
-                    driver = new FirefoxDriver(options);
+                    driver = new FirefoxDriver(firefoxOptions);
                     log.info(" FireFox is started");
                 } catch (Exception e) {
                     log.error("error to start FireFox", e);
@@ -166,8 +169,6 @@ public class ParentTest {
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         //delete cookies
         driver.manage().deleteAllCookies();
-        //maximize window
-        driver.manage().window().maximize();
 
         //Page initialization
         loginPage = new LoginPage(driver);
@@ -177,6 +178,7 @@ public class ParentTest {
         fileDownloadPage = new FileDownloadPage(driver);
         moneyRediffPage = new MoneyRediffPage(driver);
         managerPage = new ManagerPage(driver);
+        newCustomerPage = new NewCustomerPage(driver);
     }
 
     @After

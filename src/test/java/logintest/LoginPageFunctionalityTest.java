@@ -15,6 +15,8 @@ public class LoginPageFunctionalityTest extends ParentTest {
 
     private String password = "1wF#brt";
 
+
+
     @Test
     public void resetButtonTest(){
         //open login page

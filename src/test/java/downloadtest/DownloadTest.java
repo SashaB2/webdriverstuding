@@ -1,4 +1,4 @@
-package uploadanddownloadtest;
+package downloadtest;
 
 import org.junit.Test;
 import parenttest.ParentTest;
