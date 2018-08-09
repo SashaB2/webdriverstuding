@@ -113,7 +113,12 @@ public class LoginPage extends ParentPage {
 
 
     @Step
-    public  String getTextFromInvalidPasswordAlertMessage(){
+    public boolean isInvalidCredentialAlertPresent(){
+        return actionsWithWebElements.isAlertPresent();
+    }
+
+    @Step
+    public  String getTextFromInvalidCredentialAlertMessage(){
         return actionsWithWebElements.getAlertText();
     }
 

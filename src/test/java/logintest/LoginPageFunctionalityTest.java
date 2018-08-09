@@ -57,13 +57,13 @@ public class LoginPageFunctionalityTest extends ParentTest {
         loginPage.clickOnUserIdField();
         loginPage.clickOnThePageHeader();
 
-        checkAcceptanceCriteria("Info hint for UserId field did not appear", true, loginPage.isPresentInfoHintOfUserIdField());
-        checkAcceptanceCriteria("Text of info hint for UserId field is correct", ExcelData.getData("loginPage").get("infoHintForUserIdField"), loginPage.getTextOfInfoHintOfUserIdField());
+        checkAcceptanceCriteria("Info hint for UserId field did not appear", loginPage.isPresentInfoHintOfUserIdField(), true );
+        checkAcceptanceCriteria("Text of info hint for UserId field is correct", loginPage.getTextOfInfoHintOfUserIdField(), ExcelData.getData("loginPage").get("infoHintForUserIdField"));
 
         loginPage.clickOnPasswordField();
         loginPage.clickOnThePageHeader();
 
-        checkAcceptanceCriteria("Info hint for Password field did not appear", true, loginPage.isPresentInfoHintOfPasswodField());
-        checkAcceptanceCriteria("Text of info hint for Password field is correct", ExcelData.getData("loginPage").get("infoHintForPasswordIdField"), loginPage.getTextOfInfoHintOfPasswordField());
+        checkAcceptanceCriteria("Info hint for Password field did not appear", loginPage.isPresentInfoHintOfPasswodField(), true);
+        checkAcceptanceCriteria("Text of info hint for Password field is correct", loginPage.getTextOfInfoHintOfPasswordField(), ExcelData.getData("loginPage").get("infoHintForPasswordIdField"));
     }
 }

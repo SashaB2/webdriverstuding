@@ -41,7 +41,7 @@ public class ValidLoginLogoutTest extends ParentTest {
         log.info("Log out verification");
         managerPage.clickOnLogoutLink();
         //verify alert message
-        checkAcceptanceCriteria("Text on alert massage has mistakes", "You Have Succesfully Logged Out!!", managerPage.getAlertTextOfConfirmationOfLogOut());
+        checkAcceptanceCriteria("Text on alert massage has mistakes", managerPage.getAlertTextOfConfirmationOfLogOut(), "You Have Succesfully Logged Out!!");
         managerPage.manageAlertConfirmationOfLogOut(true);
         //verify if user logout
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");

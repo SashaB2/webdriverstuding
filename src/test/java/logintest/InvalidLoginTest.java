@@ -3,15 +3,11 @@ package logintest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Step;
 import libs.ConfigData;
 import libs.ExcelData;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.UnhandledAlertException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import parenttest.ParentTest;
 
 import java.util.Arrays;
@@ -34,11 +30,12 @@ public class InvalidLoginTest extends ParentTest {
     public static Collection testData(){
         return Arrays.asList(new Object[][]{
                 {"chrome", "", ""},
-                {"chrome", ConfigData.getConfigValue("login"), "123456"},
-                {"chrome", "", ConfigData.getConfigValue("password")},
-                {"chrome", "qwerty", "dvbdf"},
-                {"chrome", "admin", "admin"},
-                {"chrome", "admin", "123456"}
+                {"chrome", ConfigData.getConfigValue("login"), ""},
+//                {"chrome", ConfigData.getConfigValue("login"), "123456"},
+//                {"chrome", "", ConfigData.getConfigValue("password")},
+//                {"chrome", "qwerty", "dvbdf"},
+//                {"chrome", "admin", "admin"},
+//                {"chrome", "admin", "123456"}
         });
     }
 
@@ -59,6 +56,7 @@ public class InvalidLoginTest extends ParentTest {
         loginPage.inputLogin(login);
         loginPage.inputPassword(password);
         loginPage.clickOnLoginButton();
-        Assert.assertEquals("Text is incorrect on the invalid login alert", ExcelData.getData("loginPage").get("invalidAlertText"), loginPage.getTextFromInvalidPasswordAlertMessage());
+        checkAcceptanceCriteria("Alert do not present", loginPage.isInvalidCredentialAlertPresent(), true);
+        Assert.assertEquals("Text is incorrect on the invalid login alert", loginPage.getTextFromInvalidCredentialAlertMessage(),  ExcelData.getData("loginPage").get("invalidAlertText"));
     }
 }
