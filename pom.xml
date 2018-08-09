@@ -58,56 +58,17 @@
             <version>4.12</version>
         </dependency>
 
-        <!--The Surefire Report Plugin parses the generated TEST-*.xml files under ${basedir}/target/surefire-reports and renders them using DOXIA, which creates the web interface version of the test results.-->
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-report-plugin</artifactId>
-            <version>2.22.0</version>
-            <type>maven-plugin</type>
-        </dependency>
-
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
             <version>${allure-junit4.version}</version>
         </dependency>
-             
-        <dependency>
-               <groupId> org.apache.cassandra</groupId>
-               <artifactId>cassandra-all</artifactId>
-               <version>0.8.1</version>
-
-              <exclusions>
-              <exclusion> 
-              <groupId>org.slf4j</groupId>
-             <artifactId>slf4j-log4j12</artifactId>
-             </exclusion>
-             <exclusion> 
-             <groupId>log4j</groupId>
-             <artifactId>log4j</artifactId>
-             </exclusion>
-         </exclusions> 
-
-  </dependency>
 
        </dependencies>
 
-    <!--add for selenium grid -->
+
     <build>
         <plugins>
-            <!--if not this plugin then maven use his own with lower version 2.12 and run test via test and -Dtest -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
-                <configuration>
-                    <parallel>classes</parallel>
-                    <threadCount>3</threadCount>   <!--for multiple running-->
-                    <includes>
-                        <include>LoginSuite.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -161,23 +122,5 @@
 
         </plugins>
     </build>
-
-    <!--<reporting>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
-                <!--<version>2.22.0</version>-->
-                <!--<reportSets>-->
-                    <!--<reportSet>-->
-                        <!--<reports>-->
-                            <!--<report>report</report>-->
-                        <!--</reports>-->
-                    <!--</reportSet>-->
-                <!--</reportSets>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</reporting>-->
-
 
 </project>
