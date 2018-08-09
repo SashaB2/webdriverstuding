@@ -71,6 +71,24 @@
             <artifactId>allure-junit4</artifactId>
             <version>${allure-junit4.version}</version>
         </dependency>
+             
+        <dependency>
+               <groupId> org.apache.cassandra</groupId>
+               <artifactId>cassandra-all</artifactId>
+               <version>0.8.1</version>
+
+              <exclusions>
+              <exclusion> 
+              <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-log4j12</artifactId>
+             </exclusion>
+             <exclusion> 
+             <groupId>log4j</groupId>
+             <artifactId>log4j</artifactId>
+             </exclusion>
+         </exclusions> 
+
+  </dependency>
 
        </dependencies>
 
