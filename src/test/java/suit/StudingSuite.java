@@ -12,7 +12,6 @@ import tabletest.RediffMoneyTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         RediffMoneyTest.class,
-        DragAndDropTest.class,
         InvalidDatePickerTest.class,
         ValidDatePickerTest.class,
         InvalidDatePickerTest.class
