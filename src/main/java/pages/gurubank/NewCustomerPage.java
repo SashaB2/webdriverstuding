@@ -1,5 +1,6 @@
 package pages.gurubank;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -53,11 +54,12 @@ public class NewCustomerPage extends ParentPage {
     @FindBy(name = "res")
     WebElement ResetIButtonName;
 
-
+    @Step
     public void inputCustomerName(String customerName){
         actionsWithWebElements.inputValueInField(CustomerNameInputFieldName, customerName);
     }
 
+    @Step
     public void selectCustomerGender(String gender){
         if(gender.equals("male")){
             actionsWithWebElements.SelectCheckbox(MaleRadioButtonXpath, true);
@@ -67,42 +69,52 @@ public class NewCustomerPage extends ParentPage {
         }
     }
 
+    @Step
     public void inputCustomerDateOfBirthday(String customerDateOfBirthday){
         actionsWithWebElements.inputValueInField(DateOfBirthdayDatePickerId, customerDateOfBirthday);
     }
 
+    @Step
     public void inputCustomerAddress(String customerAddress){
         actionsWithWebElements.inputValueInField(AddressAreaName, customerAddress);
     }
 
+    @Step
     public void inputCustomerCity(String customerCity){
         actionsWithWebElements.inputValueInField(CityInputFieldName, customerCity);
     }
 
+    @Step
     public void inputCustomerState(String customerState){
         actionsWithWebElements.inputValueInField(StateInputFieldName, customerState);
     }
 
+    @Step
     public void inputCustomerPIN(String customerPIN){
         actionsWithWebElements.inputValueInField(PINInputFieldName, customerPIN);
     }
 
+    @Step
     public void inputCustomerMobileNumber(String customerMobileNumber){
         actionsWithWebElements.inputValueInField(MobileNumberInputFieldName, customerMobileNumber);
     }
 
+    @Step
     public void inputCustomerEmail(String customerEmail){
         actionsWithWebElements.inputValueInField(EmailInputFieldName, customerEmail);
     }
 
+    @Step
     public void inputCustomerPassword(String customerPassword){
         actionsWithWebElements.inputValueInField(PasswordInputFieldName, customerPassword);
     }
 
+    @Step
     public void clickOnSubmitButton(){
         actionsWithWebElements.buttonClick(SubmitIButtonName);
     }
 
+    @Step
     public void clickOnResetButton(){
         actionsWithWebElements.buttonClick(ResetIButtonName);
     }
