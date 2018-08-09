@@ -111,9 +111,10 @@ public class LoginPage extends ParentPage {
         actionsWithWebElements.buttonClick(PageHeading);
     }
 
-    @Step
-    public String getTextFromInvalidPasswordAlertMessage(){
-        return actionsWithWebElements.getAlertText();
+    @Step("$text")
+    public  String getTextFromInvalidPasswordAlertMessage(){
+        String text = actionsWithWebElements.getAlertText();
+        return text;
     }
 
 
