@@ -204,7 +204,7 @@ public class ParentTest {
         isTestPass = true;
     }
 
-    @Step("Message: {0}, Actual: {1}, Expected: {2}")
+    @Step("Message: {0}, Actual: {1}, Expected: {2} ")
     protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
 
         if(actual != expected){
