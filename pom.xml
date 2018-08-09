@@ -64,6 +64,12 @@
             <version>${allure-junit4.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+
        </dependencies>
 
 
@@ -81,7 +87,6 @@
             </plugin>
 
             <!--Allure settings-->
-
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
