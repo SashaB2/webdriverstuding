@@ -56,7 +56,7 @@ public class InvalidLoginTest extends ParentTest {
         loginPage.inputLogin(login);
         loginPage.inputPassword(password);
         loginPage.clickOnLoginButton();
-        checkAcceptanceCriteria("Invalid Credential Alert does not present", loginPage.isInvalidCredentialAlertPresent(), true);
+        checkAcceptanceCriteria("Invalid Credential Alert does not present ", loginPage.isInvalidCredentialAlertPresent(), true);
         Assert.assertEquals("Text is incorrect on the invalid login alert", loginPage.getTextFromInvalidCredentialAlertMessage(),  ExcelData.getData("loginPage").get("invalidAlertText"));
     }
 }
