@@ -46,12 +46,12 @@ public class LoginPage extends ParentPage {
         driver.navigate().to(loginPageUrl);
     }
 
-    @Step
+    @Step("Login: {0}")
     public void inputLogin(String login){
         actionsWithWebElements.inputValueInField(UserIdFieldName, login);
     }
 
-    @Step
+    @Step("Password: {0}")
     public void inputPassword(String password){
         actionsWithWebElements.inputValueInField(PasswordFieldName, password);
     }
@@ -111,10 +111,10 @@ public class LoginPage extends ParentPage {
         actionsWithWebElements.buttonClick(PageHeading);
     }
 
-    @Step("$text")
+
+    @Step
     public  String getTextFromInvalidPasswordAlertMessage(){
-        String text = actionsWithWebElements.getAlertText();
-        return text;
+        return actionsWithWebElements.getAlertText();
     }
 
 
