@@ -189,7 +189,7 @@ public class ParentTest {
         }
 
         driver.quit();
-        log.info("DRIVER QUIT")
+        log.info("DRIVER QUIT");
 
     }
 
