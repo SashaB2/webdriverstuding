@@ -1,5 +1,9 @@
 package logintest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parenttest.ParentTest;
 
@@ -14,8 +18,10 @@ public class ValidLoginLogoutTest extends ParentTest {
     }
 
     @Test
+    @Description("Valid Login Test")
+    @Severity(SeverityLevel.BLOCKER)
+    @Epic("Login user")
     public void validLoginLogoutTest(){
-        log.info("Start valid login test");
         //open login page
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
