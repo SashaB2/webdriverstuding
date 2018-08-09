@@ -11,7 +11,7 @@ public class DownloadTest extends ParentTest {
 
     @Test
     public void downloadFileOfYahoo(){
-        log.trace("Open Yahoo download page");
+        log.info("Open Yahoo download page");
         fileDownloadPage.navigateToYahooDownloadPage();
         checkAcceptanceCriteria("Yahoo download page has not benn opened", "Selenium WebDriver Test", fileDownloadPage.getPageTitle());
 
@@ -21,12 +21,10 @@ public class DownloadTest extends ParentTest {
         }
 
         //download file
-        log.trace("Download file of Yahoo download page");
         fileDownloadPage.downloadFileFromYahooPage();
         checkAcceptanceCriteria("File has not been downloaded", true, fileDownloadPage.doesDownloadedFilePresent());
 
         //delete download file
-        log.trace("Delete file of Yahoo download page");
         fileDownloadPage.deleteDownloadedFile();
 
 

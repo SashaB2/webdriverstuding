@@ -1,5 +1,5 @@
 # webdriverstuding
-1. Auto tests for Guru site.
+1. Auto tests for Guru site - http://demo.guru99.com/v4/
 
 #Environment setting
 1. CentOS 7

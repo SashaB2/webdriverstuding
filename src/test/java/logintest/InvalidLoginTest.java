@@ -19,6 +19,7 @@ public class InvalidLoginTest extends ParentTest {
 
     private String password;
 
+
     public InvalidLoginTest(String browser, String login, String password){
         super(browser);
         this.login = login;
@@ -29,7 +30,7 @@ public class InvalidLoginTest extends ParentTest {
     public static Collection testData(){
         return Arrays.asList(new Object[][]{
                 {"chrome", "", ""},
-                {"chrome", ConfigData.getConfigValue("login"), ""},
+                {"chrome", ConfigData.getConfigValue("login"), "123456"},
                 {"chrome", "", ConfigData.getConfigValue("password")},
                 {"chrome", "qwerty", "dvbdf"},
                 {"chrome", "admin", "admin"},
@@ -48,11 +49,10 @@ public class InvalidLoginTest extends ParentTest {
         log.info("Start invalid login test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));
         checkAcceptanceCriteria("Login page hasn't opened", loginPage.getPageTitle(), "Guru99 Bank Home Page");
-        log.trace("Login page opened");
 
         loginPage.inputLogin(login);
         loginPage.inputPassword(password);
         loginPage.clickOnLoginButton();
-        Assert.assertEquals("Text is incorrect on the invalid login alert", ExcelData.getData("loginPage").get("invalidAlertText"), loginPage.getTextFromInvalidPasswordAlertMessage()); //TO Do: Put text to Exel data
+        Assert.assertEquals("Text is incorrect on the invalid login alert", ExcelData.getData("loginPage").get("invalidAlertText"), loginPage.getTextFromInvalidPasswordAlertMessage());
     }
 }

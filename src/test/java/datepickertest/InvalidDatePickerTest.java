@@ -45,7 +45,6 @@ public class InvalidDatePickerTest extends ParentTest {
         //verify if page opens
         checkAcceptanceCriteria("Page title does not  coincide", "Select Date from DatePicker Demo Page", datePickerPage.getPageTitle());
         checkAcceptanceCriteria("Page with date picker does not open", "Open this page in Chrome", datePickerPage.headerOfBirthDateDemoPage());
-        log.trace("Opened DataPicker page");
 
         //input date, click button, input time
         datePickerPage.inputDateIntoDataPicker(inputtedDateInDatePicker);

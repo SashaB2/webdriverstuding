@@ -94,7 +94,6 @@ public class ParentTest {
             case "chrome":
 
                 try {
-                    log.info("Chrome will be started");
                     File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
                     System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
                     ChromeOptions chromeOptions = new ChromeOptions();
@@ -123,7 +122,6 @@ public class ParentTest {
             case "fireFox":
 
                 try {
-                    log.info("FireFox will be started");
 
                     File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
                     System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
