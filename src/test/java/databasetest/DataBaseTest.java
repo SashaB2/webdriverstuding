@@ -6,6 +6,7 @@ import io.qameta.allure.SeverityLevel;
 import libs.DataBase;
 import org.apache.log4j.Logger;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,8 +49,7 @@ public class DataBaseTest {
              }
         }
 
-        if(!trigger){
-            log.error("Login and password did not save in the database");
-        }
+        Assert.assertEquals("Login and password did not save in the database", true, trigger);
+
     }
 }

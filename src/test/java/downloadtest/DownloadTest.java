@@ -18,7 +18,7 @@ public class DownloadTest extends ParentTest {
     public void downloadFileOfYahoo(){
         log.info("Start to verify download file of Yahoo download page");
         fileDownloadPage.navigateToYahooDownloadPage();
-        checkAcceptanceCriteria("Yahoo download page has not benn opened", "Selenium WebDriver Test", fileDownloadPage.getPageTitle());
+        checkAcceptanceCriteria("Yahoo download page has not benn opened", fileDownloadPage.getPageTitle(), "Selenium WebDriver Test");
 
         //verify if file present of previous case text and delete the file if it exists
         if(fileDownloadPage.doesDownloadedFilePresent()){
@@ -27,7 +27,7 @@ public class DownloadTest extends ParentTest {
 
         //download file
         fileDownloadPage.downloadFileFromYahooPage();
-        checkAcceptanceCriteria("File has not been downloaded", true, fileDownloadPage.doesDownloadedFilePresent());
+        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(), true);
 
         //delete download file
         fileDownloadPage.deleteDownloadedFile();

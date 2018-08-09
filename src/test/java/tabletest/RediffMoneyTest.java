@@ -17,10 +17,10 @@ public class RediffMoneyTest extends ParentTest {
     public void TableTest(){
         log.info("Start to Price oof table on Rediff page");
         moneyRediffPage.openRediffPage("https://money.rediff.com/gainers/bse/daily/groupall");
-        checkAcceptanceCriteria("Money Rediff page does not open", "Daily Gainers: BSE, NSE, Stock quotes, share market, stock market, stock tips: Rediff Stocks", moneyRediffPage.getPageTitle());
+        checkAcceptanceCriteria("Money Rediff page does not open", moneyRediffPage.getPageTitle(), "Daily Gainers: BSE, NSE, Stock quotes, share market, stock market, stock tips: Rediff Stocks");
 
         //check if price more than twi thousand is
-        checkAcceptanceCriteria("No 2000 price available", true, moneyRediffPage.getMaxPriceOfTable() > 2000);
+        checkAcceptanceCriteria("No 2000 price available", moneyRediffPage.getMaxPriceOfTable() > 2000, true);
 
 
     }

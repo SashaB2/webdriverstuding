@@ -49,17 +49,17 @@ public class ValidDatePickerTest extends ParentTest {
         loginPage.clickOnPartiallLink("Selenium DatePicker Demo");
 
         //verify if page opens
-        checkAcceptanceCriteria("Page title does not  coincide", "Select Date from DatePicker Demo Page", datePickerPage.getPageTitle());
-        checkAcceptanceCriteria("Page with date picker does not open", "Open this page in Chrome", datePickerPage.headerOfBirthDateDemoPage());
+        checkAcceptanceCriteria("Page title does not  coincide", datePickerPage.getPageTitle(), "Select Date from DatePicker Demo Page");
+        checkAcceptanceCriteria("Page with date picker does not open", datePickerPage.headerOfBirthDateDemoPage(), "Open this page in Chrome");
 
         //input date, click button, input time
         datePickerPage.inputDateIntoDataPicker(inputtedDateInDatePicker);
         datePickerPage.clickOnTabButton(key);
         datePickerPage.inputTimeIntoDataPicker(inputtedTimeInDatePicker);
         datePickerPage.clickOnSubmitButton();
-        checkAcceptanceCriteria("\"Birth Date Demo Page\" does not open","Birth Date Demo Page", datePickerPage.getPageTitle());
+        checkAcceptanceCriteria("\"Birth Date Demo Page\" does not open",datePickerPage.getPageTitle(), "Birth Date Demo Page");
 
-        checkAcceptanceCriteria("Inputted date into dataPicker does coincide with outputted date", inputtedDateInDatePicker, birthDateDemoPage.takeDate());
-        checkAcceptanceCriteria("Inputted time into dataPicker does coincide with outputted time", inputtedTimeInDatePicker.toUpperCase(), birthDateDemoPage.takeTime());
+        checkAcceptanceCriteria("Inputted date into dataPicker does coincide with outputted date", birthDateDemoPage.takeDate(), inputtedDateInDatePicker);
+        checkAcceptanceCriteria("Inputted time into dataPicker does coincide with outputted time", birthDateDemoPage.takeTime(), inputtedTimeInDatePicker.toUpperCase());
     }
 }
