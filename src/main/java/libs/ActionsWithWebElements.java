@@ -275,7 +275,6 @@ public class ActionsWithWebElements {
         try{
             Process execution = Runtime.getRuntime().exec(wgetCommand);
             int exitVal = execution.waitFor();
-            log.info("Exit value: " + exitVal);
         }
         catch (IOException | InterruptedException e){
             log.error("Can't download file of Yahoo", e);
