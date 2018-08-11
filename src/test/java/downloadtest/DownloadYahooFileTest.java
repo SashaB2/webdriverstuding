@@ -30,11 +30,10 @@ public class DownloadYahooFileTest extends ParentTest {
 
         //download file
         fileDownloadPage.downloadFileFromYahooPage(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
-//        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation")), true);
+        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation")), true);
 
 //        delete download file
-//        fileDownloadPage.deleteDownloadedFile(ConfigData.getConfigValue("downloadFileLocation"));
-
+        fileDownloadPage.deleteDownloadedFile(ConfigData.getConfigValue("downloadFileLocation"));
 
     }
 }
