@@ -283,6 +283,7 @@ public class ActionsWithWebElements {
         }
     }
 
+
     public boolean ifFilePresent(String locationFile){
         File file = new File(locationFile);
         return file.exists();
