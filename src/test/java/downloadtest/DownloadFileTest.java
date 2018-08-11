@@ -21,16 +21,16 @@ public class DownloadFileTest extends ParentTest {
         checkAcceptanceCriteria("Yahoo download page has not benn opened", fileDownloadPage.getPageTitle(), "Selenium WebDriver Test");
 
         //verify if file present of a previous case and delete the file if it exists
-        if(fileDownloadPage.doesDownloadedFilePresent()){
-            fileDownloadPage.deleteDownloadedFile();
-        }
+//        if(fileDownloadPage.doesDownloadedFilePresent()){
+//            fileDownloadPage.deleteDownloadedFile();
+//        }
 
         //download file
         fileDownloadPage.downloadFileFromYahooPage();
-        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(), true);
+//        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(), true);
 
         //delete download file
-        fileDownloadPage.deleteDownloadedFile();
+//        fileDownloadPage.deleteDownloadedFile();
 
 
     }

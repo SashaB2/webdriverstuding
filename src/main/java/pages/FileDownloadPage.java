@@ -46,7 +46,7 @@ public class FileDownloadPage extends ParentPage {
             wgetCommand = "C:\\CV\\webdriverstuding\\drivers\\wget\\wget.exe -P C:\\CV --no-check-certificate";
         }
         else if(Global.isPlatform(Platform.LINUX)){
-            wgetCommand = ".drivers/wget/wget -P \\opt --no-check-certificate";
+            wgetCommand = "wget -P \\opt --no-check-certificate";
         }
 
         actionsWithWebElements.downloadFile(DownloadLinkId, wgetCommand);
