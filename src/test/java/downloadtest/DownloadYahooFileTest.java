@@ -32,7 +32,8 @@ public class DownloadYahooFileTest extends ParentTest {
 //        }
 //        log.info(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
         //download file
-        Main.runLinCom();
+        Process execution = Runtime.getRuntime().exec("wget -P /home --no-check-certificate http://demo.guru99.com/test/msgr11us.exe");
+//        Main.runLinCom();
 //        fileDownloadPage.downloadFileFromYahooPage(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
 //        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation")), true);
 
