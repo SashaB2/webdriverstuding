@@ -24,13 +24,13 @@ public class DownloadYahooFileTest extends ParentTest {
         checkAcceptanceCriteria("Yahoo download page has not benn opened", fileDownloadPage.getPageTitle(), "Selenium WebDriver Test");
 
 //        verify if file present of a previous case and delete the file if it exists
-        if(fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation"))){
-            fileDownloadPage.deleteDownloadedFile(ConfigData.getConfigValue("downloadFileLocation"));
-        }
-
+//        if(fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation"))){
+//            fileDownloadPage.deleteDownloadedFile(ConfigData.getConfigValue("downloadFileLocation"));
+//        }
+        log.info(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
         //download file
         fileDownloadPage.downloadFileFromYahooPage(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
-        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation")), true);
+//        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation")), true);
 
 //        delete download file
 //        fileDownloadPage.deleteDownloadedFile(ConfigData.getConfigValue("downloadFileLocation"));

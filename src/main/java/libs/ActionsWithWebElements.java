@@ -271,9 +271,11 @@ public class ActionsWithWebElements {
      * cmd example = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
      */
     public void downloadFile(String wgetCommand){
+
         try{
             Process execution = Runtime.getRuntime().exec(wgetCommand);
             int exitVal = execution.waitFor();
+            log.info("Exit value: " + exitVal);
         }
         catch (IOException | InterruptedException e){
             log.error("Can't download file of Yahoo", e);
