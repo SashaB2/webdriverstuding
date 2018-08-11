@@ -8,8 +8,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -266,15 +268,26 @@ public class ActionsWithWebElements {
     //download functionality
 
     /**
-     *
-     * @param wgetCommand put main wget command without source download file
      * cmd example = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
+     * for Linux: for destination download folder shall be given chmod 777, because deny access
+     * @param wgetCommand put main wget command without source download file
+     * @param downloadFileURL download url
+     *
      */
-    public void downloadFile(String wgetCommand){
+    public void downloadFile(String wgetCommand, String downloadFileURL){
 
         try{
-            Process execution = Runtime.getRuntime().exec(wgetCommand);
+            Process execution = Runtime.getRuntime().exec(wgetCommand + " " + downloadFileURL);
             int exitVal = execution.waitFor();
+
+            log.info("Inpt steam");
+
+            //when file does not download then view logs
+//            BufferedReader buf1 = new BufferedReader(new InputStreamReader(execution.getInputStream()));
+//            String line1 = "";
+//            while ((line1 = buf1.readLine()) != null) {
+//                log.info("exec response: " + line1);
+//            }
         }
         catch (IOException | InterruptedException e){
             log.error("Can't download file of Yahoo", e);

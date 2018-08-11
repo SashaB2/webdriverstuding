@@ -42,10 +42,11 @@ public class FileDownloadPage extends ParentPage {
      * give execution path for wget + "-P" + file download destination + "--no-check-certificates" + method itself take value of attribute href and put download source
      * "-P" - after we put download destination
      * Example real wget command in windows cmd = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
+     * @param wgetCommand to input first part of wget command
      */
     @Step
     public void downloadFileFromYahooPage(String wgetCommand){
-        actionsWithWebElements.downloadFile(wgetCommand);
+        actionsWithWebElements.downloadFile(wgetCommand, DownloadLinkId.getAttribute("href"));
     }
 
 
