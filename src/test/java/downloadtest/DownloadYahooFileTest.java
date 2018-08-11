@@ -7,7 +7,10 @@ import libs.ConfigData;
 import libs.Global;
 import org.junit.Test;
 import org.openqa.selenium.Platform;
+import pages.Main;
 import parenttest.ParentTest;
+
+import java.io.IOException;
 
 public class DownloadYahooFileTest extends ParentTest {
 
@@ -18,18 +21,19 @@ public class DownloadYahooFileTest extends ParentTest {
     @Test
     @Description("Open Yahoo download page")
     @Severity(SeverityLevel.CRITICAL)
-    public void downloadFileOfYahoo(){
-        log.info("Start to verify download file of Yahoo download page");
-        fileDownloadPage.navigateToYahooDownloadPage();
-        checkAcceptanceCriteria("Yahoo download page has not benn opened", fileDownloadPage.getPageTitle(), "Selenium WebDriver Test");
+    public void downloadFileOfYahoo() throws IOException {
+//        log.info("Start to verify download file of Yahoo download page");
+//        fileDownloadPage.navigateToYahooDownloadPage();
+//        checkAcceptanceCriteria("Yahoo download page has not benn opened", fileDownloadPage.getPageTitle(), "Selenium WebDriver Test");
 
 //        verify if file present of a previous case and delete the file if it exists
 //        if(fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation"))){
 //            fileDownloadPage.deleteDownloadedFile(ConfigData.getConfigValue("downloadFileLocation"));
 //        }
-        log.info(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
+//        log.info(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
         //download file
-        fileDownloadPage.downloadFileFromYahooPage(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
+        Main.runLinCom();
+//        fileDownloadPage.downloadFileFromYahooPage(ConfigData.getConfigValue("wgetDownloadFileYahoo"));
 //        checkAcceptanceCriteria("File has not been downloaded", fileDownloadPage.doesDownloadedFilePresent(ConfigData.getConfigValue("downloadFileLocation")), true);
 
 //        delete download file
