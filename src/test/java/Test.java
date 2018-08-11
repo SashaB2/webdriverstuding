@@ -4,6 +4,10 @@ import java.io.InputStreamReader;
 
 public class Test {
 
+    public static void main(String[] args) {
+
+    }
+
 
     @org.junit.Test
     public void ver() throws IOException {
