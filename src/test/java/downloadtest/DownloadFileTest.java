@@ -6,9 +6,9 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parenttest.ParentTest;
 
-public class DownloadTest extends ParentTest {
+public class DownloadFileTest extends ParentTest {
 
-    public DownloadTest(String browser) {
+    public DownloadFileTest(String browser) {
         super(browser);
     }
 
@@ -20,7 +20,7 @@ public class DownloadTest extends ParentTest {
         fileDownloadPage.navigateToYahooDownloadPage();
         checkAcceptanceCriteria("Yahoo download page has not benn opened", fileDownloadPage.getPageTitle(), "Selenium WebDriver Test");
 
-        //verify if file present of previous case text and delete the file if it exists
+        //verify if file present of a previous case and delete the file if it exists
         if(fileDownloadPage.doesDownloadedFilePresent()){
             fileDownloadPage.deleteDownloadedFile();
         }
