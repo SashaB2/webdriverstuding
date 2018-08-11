@@ -23,14 +23,19 @@ public class FileDownloadPage extends ParentPage {
         driver.navigate().to(ConfigData.getConfigValue("YAHOO_DOWNLOAD_FILE"));
     }
 
+    /**
+     * input file location + file name
+     * @param downloadFileLocation
+     * @return
+     */
     @Step
-    public boolean doesDownloadedFilePresent(){
-        return actionsWithWebElements.ifFilePresent("C:\\CV\\", "msgr11us.exe");
+    public boolean doesDownloadedFilePresent(String downloadFileLocation){
+        return actionsWithWebElements.ifFilePresent(downloadFileLocation);
     }
 
     @Step
-    public void deleteDownloadedFile(){
-        actionsWithWebElements.deleteFile("C:\\CV\\", "msgr11us.exe");
+    public void deleteDownloadedFile(String downloadFileLocation){
+        actionsWithWebElements.deleteFile(downloadFileLocation);
     }
 
     /**
@@ -39,17 +44,8 @@ public class FileDownloadPage extends ParentPage {
      * Example real wget command in windows cmd = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
      */
     @Step
-    public void downloadFileFromYahooPage(){
-        String wgetCommand = "";
-
-        if(Global.isPlatform(Platform.WIN10)) {
-            wgetCommand = "C:\\CV\\webdriverstuding\\drivers\\wget\\wget.exe -P C:\\CV --no-check-certificate";
-        }
-        else if(Global.isPlatform(Platform.LINUX)){
-            wgetCommand = "wget -P \\opt --no-check-certificate";
-        }
-
-        actionsWithWebElements.downloadFile(DownloadLinkId, wgetCommand);
+    public void downloadFileFromYahooPage(String wgetCommand){
+        actionsWithWebElements.downloadFile(wgetCommand);
     }
 
 

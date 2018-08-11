@@ -1,12 +1,8 @@
 package suites;
 
-import datepickertest.InvalidDatePickerTest;
-import datepickertest.ValidDatePickerTest;
-import downloadtest.DownloadFileTest;
-import draganddrop.DragAndDropTest;
+import downloadtest.DownloadYahooFileTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import tabletest.RediffMoneyTest;
 
 //TO DO: add download test executing to linux
 @RunWith(Suite.class)
@@ -16,7 +12,7 @@ import tabletest.RediffMoneyTest;
 //        InvalidDatePickerTest.class,
 //        ValidDatePickerTest.class,
 //        InvalidDatePickerTest.class,
-        DownloadFileTest.class
+        DownloadYahooFileTest.class
 
 })
 

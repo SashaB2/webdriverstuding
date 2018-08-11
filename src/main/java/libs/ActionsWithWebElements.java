@@ -267,44 +267,33 @@ public class ActionsWithWebElements {
 
     /**
      *
-     * @param element take from this element source for downloading file
      * @param wgetCommand put main wget command without source download file
      * cmd example = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
      */
-    public void downloadFile(WebElement element, String wgetCommand){
-        String sourceLocation = element.getAttribute("href");
+    public void downloadFile(String wgetCommand){
         try{
-            Process execution = Runtime.getRuntime().exec(wgetCommand + " " + sourceLocation);
+            Process execution = Runtime.getRuntime().exec(wgetCommand);
             int exitVal = execution.waitFor();
         }
-        catch (IOException e){
-            log.error("Can't download file of Yahoo", e);
-            Assert.fail("Can't download file of Yahoo");
-        }
-        catch (InterruptedException e){
+        catch (IOException | InterruptedException e){
             log.error("Can't download file of Yahoo", e);
             Assert.fail("Can't download file of Yahoo");
         }
     }
 
-    public boolean ifFilePresent(String location, String fileName){
-        File file = new File(location + fileName);
+    public boolean ifFilePresent(String locationFile){
+        File file = new File(locationFile);
         return file.exists();
     }
 
-    public void deleteFile(String location, String fileName){
-        File file = new File(location + fileName);
-        Boolean result = false;
+    public void deleteFile(String locationFile){
+        File file = new File(locationFile);
+
 
         if(file.exists()){
-            result = file.delete();
+            file.delete();
         }
 
-        if(result){
-            log.info("File deleted: " + fileName);
-        }else{
-            log.info("File did not deleted: " + fileName);
-        }
     }
 
 
