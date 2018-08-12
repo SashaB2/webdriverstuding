@@ -57,10 +57,11 @@ public class ActionsWithWebElements {
             element.clear();
             element.sendKeys(value);
         }catch (Exception e){
-            log.error("Not found " + element);
+            log.error("Element Not found: " + e);
         }
 
     }
+
 
     /**
      * get page title from header in HTML

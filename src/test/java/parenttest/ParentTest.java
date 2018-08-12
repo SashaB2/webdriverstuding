@@ -29,6 +29,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import pages.DragAndDropPage;
+import pages.UploadFilePage;
 import pages.datepickerpages.BirthDateDemoPage;
 import pages.LoginPage;
 import pages.datepickerpages.DatePickerPage;
@@ -65,6 +66,7 @@ public class ParentTest {
     protected MoneyRediffPage moneyRediffPage;
     protected ManagerPage managerPage;
     protected NewCustomerPage newCustomerPage;
+    protected UploadFilePage uploadFilePage;
 
 
     public ParentTest(String browser){
@@ -178,6 +180,7 @@ public class ParentTest {
         moneyRediffPage = new MoneyRediffPage(driver);
         managerPage = new ManagerPage(driver);
         newCustomerPage = new NewCustomerPage(driver);
+        uploadFilePage = new UploadFilePage(driver);
     }
 
     @After
@@ -187,7 +190,7 @@ public class ParentTest {
             screenShots.screenShot(pathToScreenShot, driver);
         }
 
-        driver.quit();
+//        driver.quit();
 
     }
 
