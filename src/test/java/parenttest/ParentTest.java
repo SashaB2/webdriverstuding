@@ -190,7 +190,7 @@ public class ParentTest {
             screenShots.screenShot(pathToScreenShot, driver);
         }
 
-//        driver.quit();
+        driver.quit();
 
     }
 

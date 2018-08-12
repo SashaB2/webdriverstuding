@@ -1,6 +1,7 @@
 package suites;
 
 import downloadtest.DownloadYahooFileTest;
+import downloadtest.UploadFileTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -12,8 +13,8 @@ import org.junit.runners.Suite;
 //        InvalidDatePickerTest.class,
 //        ValidDatePickerTest.class,
 //        InvalidDatePickerTest.class,
-        DownloadYahooFileTest.class
-
+//        DownloadYahooFileTest.class
+        UploadFileTest.class
 })
 
 public class StudingSuite {
