@@ -46,7 +46,7 @@ public class DataBaseTest {
              if(login.equals(pair.getKey()) && password.equals(pair.getValue())){
                 log.info("Login and password saved in the database");
                 trigger = true;
-                 breake;
+                breake;
              }
         }
 
