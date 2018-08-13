@@ -83,8 +83,7 @@ public class ParentTest {
     public static Collection testData() throws IOException{
         return Arrays.asList(new Object[][]{
                 {"chrome"},
-//                {"fireFox"},
-//                {"remote"}
+                {"fireFox"},
         });
     }
 
@@ -150,24 +149,12 @@ public class ParentTest {
 
                 break;
 
-            //To Do: develop more pretty grid
-            case "remote":
-
-                try {
-                    log.info("remote browser will be started");
-                    driver = new RemoteWebDriver(new URL("http://localhost:4445/wd/hub"), DesiredCapabilities.chrome());
-                    log.info("remote browser is started");
-                } catch (MalformedURLException e) {
-                    log.error("can not connect to remote server", e);
-                }
-
-                break;
         }
 
         //implicitly wait
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //for load pages
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         //delete cookies
         driver.manage().deleteAllCookies();
 

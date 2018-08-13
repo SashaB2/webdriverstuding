@@ -1,5 +1,6 @@
 package suites;
 
+import databasetest.DataBaseTest;
 import datepickertest.InvalidDatePickerTest;
 import datepickertest.ValidDatePickerTest;
 import downloadtest.DownloadYahooFileTest;
@@ -17,7 +18,8 @@ import tabletest.RediffMoneyTest;
         InvalidDatePickerTest.class,
         ValidDatePickerTest.class,
         DownloadYahooFileTest.class,
-        UploadFileTest.class
+        UploadFileTest.class,
+        DataBaseTest.class
 })
 
 public class StudingSuite {

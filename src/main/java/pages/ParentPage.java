@@ -25,7 +25,7 @@ public class ParentPage {
     @FindBy(tagName = "h2")
     WebElement PageHeading;
 
-    //all pages has heading
+    //man pages has heading
     public String getValueFromHeading(){
         return PageHeading.getText();
     }
