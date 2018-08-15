@@ -1,6 +1,5 @@
 package parenttest;
 
-import io.qameta.allure.Step;
 import libs.ConfigData;
 import libs.Global;
 import org.apache.log4j.Logger;
@@ -19,24 +18,19 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
 import libs.ScreenShots;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-import pages.DragAndDropPage;
-import pages.UploadFilePage;
+import pages.*;
 import pages.datepickerpages.BirthDateDemoPage;
-import pages.LoginPage;
 import pages.datepickerpages.DatePickerPage;
 import pages.gurubank.ManagerPage;
 import pages.gurubank.NewCustomerPage;
+import pages.popuppages.GuruBankPopupPage;
+import pages.popuppages.SearchUserByEmailPage;
 import pages.tablepages.MoneyRediffPage;
-import pages.FileDownloadPage;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -67,6 +61,8 @@ public class ParentTest {
     protected ManagerPage managerPage;
     protected NewCustomerPage newCustomerPage;
     protected UploadFilePage uploadFilePage;
+    protected GuruBankPopupPage guruBankPopupPage;
+    protected SearchUserByEmailPage searchUserByEmailPage;
 
 
     public ParentTest(String browser){
@@ -83,7 +79,7 @@ public class ParentTest {
     public static Collection testData() throws IOException{
         return Arrays.asList(new Object[][]{
                 {"chrome"},
-                {"fireFox"},
+//                {"fireFox"},
         });
     }
 
@@ -168,6 +164,8 @@ public class ParentTest {
         managerPage = new ManagerPage(driver);
         newCustomerPage = new NewCustomerPage(driver);
         uploadFilePage = new UploadFilePage(driver);
+        guruBankPopupPage = new GuruBankPopupPage(driver);
+        searchUserByEmailPage = new SearchUserByEmailPage(driver);
     }
 
     @After

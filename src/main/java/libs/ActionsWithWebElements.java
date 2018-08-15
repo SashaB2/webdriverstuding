@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 public class ActionsWithWebElements {
 
@@ -23,6 +24,21 @@ public class ActionsWithWebElements {
     public ActionsWithWebElements(WebDriver driver) {
         this.driver = driver;
         this.log = Logger.getLogger(getClass());
+    }
+
+    public String getTextOfElement(WebElement element){
+        String string = "";
+        try {
+            string = element.getText();
+        }
+        catch (org.openqa.selenium.NoSuchElementException e){
+            log.error("Can not find suc element", e);
+        }
+        catch (Exception e){
+            log.error("Error: ", e);
+        }
+
+        return string;
     }
 
     /**
@@ -310,6 +326,31 @@ public class ActionsWithWebElements {
             file.delete();
         }
 
+    }
+
+    //Popup window
+
+    public void switchToPopupWindow(){
+        String currentWindowId;
+        Set<String> windowsSet = null;
+
+        try{
+            currentWindowId = driver.getWindowHandle();
+            windowsSet = driver.getWindowHandles();
+
+            for (String windowId : windowsSet) {
+
+                if(!currentWindowId.equalsIgnoreCase(windowId)){
+                    driver.switchTo().window(windowId);
+                }
+            }
+        }
+        catch (NoSuchWindowException e){
+            log.error("Do not find out window", e);
+        }
+        catch (Exception e){
+            log.error("Error with switch to popup", e);
+        }
     }
 
 
