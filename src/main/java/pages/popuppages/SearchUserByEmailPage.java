@@ -1,12 +1,10 @@
 package pages.popuppages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.ParentPage;
-
-import java.util.Iterator;
-import java.util.Set;
 
 public class SearchUserByEmailPage extends ParentPage{
 
@@ -15,7 +13,7 @@ public class SearchUserByEmailPage extends ParentPage{
     }
     
     @FindBy(xpath = "//table//h2")
-    WebElement tableHeadingXpath;
+    WebElement TableHeadingXpath;
 
     @FindBy(name = "emailid")
     WebElement EmailIdFieldName;
@@ -26,33 +24,24 @@ public class SearchUserByEmailPage extends ParentPage{
     @FindBy(name = "btnLogin")
     WebElement SubmitButtonID;
 
+    @Step
     public String getHeadingOfPage(){
-        return actionsWithWebElements.getTextOfElement(tableHeadingXpath);
+        return actionsWithWebElements.getTextOfElement(TableHeadingXpath);
     }
 
-
-
-
-
-
-
-    public void switchToNewWindow(){
-        String mainWindow = driver.getWindowHandle();
-        Set<String> windows = driver.getWindowHandles();
-        Iterator<String> iterator = windows.iterator();
-
-
-
-
-        while(iterator.hasNext()){
-            String childWindow = iterator.next();
-
-            if(!mainWindow.equalsIgnoreCase(childWindow)){
-                driver.switchTo().window(childWindow);
-
-                actionsWithWebElements.inputValueInField(EmailIdFieldName, "sviridenko1@gmail.com");
-                actionsWithWebElements.buttonClick(SubmitButtonID);
-            }
-        }
+    @Step
+    public void inputUserEmail(String userEmail){
+        actionsWithWebElements.inputValueInField(EmailIdFieldName, userEmail);
     }
+
+    @Step
+    public void clickOnSubmitButton(){
+        actionsWithWebElements.buttonClick(SubmitButtonID);
+    }
+
+    @Step
+    public String getTextOfErrorLable(){
+        return actionsWithWebElements.getTextOfElement(ErrorLabelID);
+    }
+
 }

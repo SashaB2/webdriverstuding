@@ -8,6 +8,9 @@ import downloadtest.UploadFileTest;
 import draganddrop.DragAndDropTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import popupwindowstest.BlankEmailUserForRegisterUserTest;
+import popupwindowstest.InvalidEmailUserCredentialTest;
+import popupwindowstest.UserCredentialTest;
 import tabletest.RediffMoneyTest;
 
 //TO DO: add download test executing to linux
@@ -19,7 +22,10 @@ import tabletest.RediffMoneyTest;
         ValidDatePickerTest.class,
         DownloadYahooFileTest.class,
         UploadFileTest.class,
-        DataBaseTest.class
+        DataBaseTest.class,
+        UserCredentialTest.class,
+        InvalidEmailUserCredentialTest.class,
+        BlankEmailUserForRegisterUserTest.class
 })
 
 public class StudingSuite {

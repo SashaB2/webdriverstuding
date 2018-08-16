@@ -1,22 +1,16 @@
 package popupwindowstest;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parenttest.ParentTest;
 
-public class GuruBankPopupTest extends ParentTest {
+public class BlankEmailUserForRegisterUserTest extends ParentTest {
 
-    public GuruBankPopupTest(String browser) {
+    public BlankEmailUserForRegisterUserTest(String browser) {
         super(browser);
     }
 
-
     @Test
-    @Description("Guru Bnk Popup window test")
-    @Severity(SeverityLevel.NORMAL)
-    public void guruBankPopupTest(){
+    public void name() {
         log.info("start Guru Bnk Popup window test");
         guruBankPopupPage.openPopupPage();
         checkAcceptanceCriteria("Guru Bank Popup pagee title does not coincide", guruBankPopupPage.getGuruBankPopupPageTitle(), "Guru99 Bank Home Page");
@@ -25,6 +19,10 @@ public class GuruBankPopupTest extends ParentTest {
         guruBankPopupPage.switchToSearchUserByEmailPopupWindow();
         System.out.println(searchUserByEmailPage.getHeadingOfPage());
         checkAcceptanceCriteria("Do not open search user window", searchUserByEmailPage.getHeadingOfPage(), "Enter your email address to get\naccess details to demo site");
+
+        searchUserByEmailPage.inputUserEmail("");
+        searchUserByEmailPage.clickOnSubmitButton();
+        checkAcceptanceCriteria("Access popup page has not been opened", searchUserByEmailPage.getTextOfErrorLable(), "Email ID must not be blank");
 
     }
 }

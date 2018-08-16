@@ -26,6 +26,8 @@ public class ActionsWithWebElements {
         this.log = Logger.getLogger(getClass());
     }
 
+
+
     public String getTextOfElement(WebElement element){
         String string = "";
         try {
@@ -169,20 +171,6 @@ public class ActionsWithWebElements {
      */
     public boolean areTwoElementPresent(WebElement elementNum, WebElement elementCom, String num, String com){
         return ((num.equalsIgnoreCase(elementNum.getText()))&&(com.equalsIgnoreCase(elementCom.getText())));
-    }
-
-    /**
-     * get amount of rows
-     */
-    public int amountRows(List<WebElement> elements){
-        return elements.size();
-    }
-
-    /**
-     * get amount of columns
-     */
-    public int amountColumns(List<WebElement> elements){
-        return elements.size();
     }
 
     //Alert functional

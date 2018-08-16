@@ -42,7 +42,6 @@ public class MoneyRediffPage extends ParentPage{
             try {
                 tempStringPriceValue = element.getText();
                 number = numberFormat.parse(tempStringPriceValue);
-                tempStringPriceValue = null;
                 tempStringPriceValue = number.toString();
                 temp = Double.parseDouble(tempStringPriceValue);
 

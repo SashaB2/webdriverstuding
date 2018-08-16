@@ -28,6 +28,7 @@ import pages.datepickerpages.BirthDateDemoPage;
 import pages.datepickerpages.DatePickerPage;
 import pages.gurubank.ManagerPage;
 import pages.gurubank.NewCustomerPage;
+import pages.popuppages.AccessPopupPage;
 import pages.popuppages.GuruBankPopupPage;
 import pages.popuppages.SearchUserByEmailPage;
 import pages.tablepages.MoneyRediffPage;
@@ -63,6 +64,7 @@ public class ParentTest {
     protected UploadFilePage uploadFilePage;
     protected GuruBankPopupPage guruBankPopupPage;
     protected SearchUserByEmailPage searchUserByEmailPage;
+    protected AccessPopupPage accessPopupPage;
 
 
     public ParentTest(String browser){
@@ -166,6 +168,7 @@ public class ParentTest {
         uploadFilePage = new UploadFilePage(driver);
         guruBankPopupPage = new GuruBankPopupPage(driver);
         searchUserByEmailPage = new SearchUserByEmailPage(driver);
+        accessPopupPage = new AccessPopupPage(driver);
     }
 
     @After

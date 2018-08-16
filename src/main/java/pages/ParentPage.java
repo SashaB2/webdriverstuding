@@ -25,15 +25,23 @@ public class ParentPage {
     @FindBy(tagName = "h2")
     WebElement PageHeading;
 
-    //man pages has heading
+    @Step
+    public String getPageURL(){
+        return driver.getCurrentUrl();
+    }
+
+    //all pages has heading
+    @Step
     public String getValueFromHeading(){
         return PageHeading.getText();
     }
 
+    @Step
     public String getPageTitle(){
         return driver.getTitle();
     }
 
+    @Step
     public void refreshWindow(){
         actionsWithWebElements.refreshWindow();
     }
