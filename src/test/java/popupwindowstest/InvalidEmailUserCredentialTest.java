@@ -38,7 +38,7 @@ public class InvalidEmailUserCredentialTest extends ParentTest {
     @Description("Test popup window with invalid user email")
     @Severity(SeverityLevel.NORMAL)
     public void invalidUserEmailForgenerationCredential(){
-        log.info("start Guru Bnk Popup window test");
+        log.info("start a test popup window with invalid user email");
         guruBankPopupPage.openPopupPage();
         checkAcceptanceCriteria("Guru Bank Popup pagee title does not coincide", guruBankPopupPage.getGuruBankPopupPageTitle(), "Guru99 Bank Home Page");
 

@@ -123,7 +123,6 @@ public class LoginPage extends ParentPage {
     }
 
 
-
     @Step
     public void loginQuickly(String login, String password){
         openLoginPage(ConfigData.getConfigValue("base_url"));

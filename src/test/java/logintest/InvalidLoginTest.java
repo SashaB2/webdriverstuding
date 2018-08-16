@@ -31,6 +31,7 @@ public class InvalidLoginTest extends ParentTest {
         return Arrays.asList(new Object[][]{
                 {"chrome", "", ""},
                 {"chrome", ConfigData.getConfigValue("login"), ""},
+                {"chrome", ConfigData.getConfigValue("login"), ""},
                 {"chrome", ConfigData.getConfigValue("login"), "123456"},
                 {"chrome", "", ConfigData.getConfigValue("password")},
                 {"chrome", "qwerty", "dvbdf"},
@@ -55,6 +56,7 @@ public class InvalidLoginTest extends ParentTest {
 
         loginPage.inputLogin(login);
         loginPage.inputPassword(password);
+        loginPage.clickOnThePageHeader();
         loginPage.clickOnLoginButton();
         checkAcceptanceCriteria("Invalid Credential Alert does not present ", loginPage.isInvalidCredentialAlertPresent(), true);
         Assert.assertEquals("Text is incorrect on the invalid login alert", loginPage.getTextFromInvalidCredentialAlertMessage(),  ExcelData.getData("loginPage").get("invalidAlertText"));
