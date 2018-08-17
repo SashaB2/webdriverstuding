@@ -28,6 +28,8 @@ import pages.datepickerpages.BirthDateDemoPage;
 import pages.datepickerpages.DatePickerPage;
 import pages.gurubank.ManagerPage;
 import pages.gurubank.NewCustomerPage;
+import pages.mercurytourspages.MercuryRegisterPage;
+import pages.mercurytourspages.MercuryRegisterSucessPage;
 import pages.popuppages.AccessPopupPage;
 import pages.popuppages.GuruBankPopupPage;
 import pages.popuppages.SearchUserByEmailPage;
@@ -65,6 +67,8 @@ public class ParentTest {
     protected GuruBankPopupPage guruBankPopupPage;
     protected SearchUserByEmailPage searchUserByEmailPage;
     protected AccessPopupPage accessPopupPage;
+    protected MercuryRegisterPage mercuryRegisterPage;
+    protected MercuryRegisterSucessPage mercuryRegisterSucessPage;
 
 
     public ParentTest(String browser){
@@ -169,6 +173,8 @@ public class ParentTest {
         guruBankPopupPage = new GuruBankPopupPage(driver);
         searchUserByEmailPage = new SearchUserByEmailPage(driver);
         accessPopupPage = new AccessPopupPage(driver);
+        mercuryRegisterPage = new MercuryRegisterPage(driver);
+        mercuryRegisterSucessPage = new MercuryRegisterSucessPage(driver);
     }
 
     @After

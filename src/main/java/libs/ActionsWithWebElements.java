@@ -27,6 +27,14 @@ public class ActionsWithWebElements {
     }
 
 
+    public void submitClick(WebElement element){
+        try {
+            element.submit();
+        }
+        catch (Exception e){
+            log.error("Error when to click on a submit button", e);
+        }
+    }
 
     public String getTextOfElement(WebElement element){
         String string = "";
