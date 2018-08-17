@@ -6,6 +6,7 @@ import datepickertest.ValidDatePickerTest;
 import downloadtest.DownloadYahooFileTest;
 import downloadtest.UploadFileTest;
 import draganddrop.DragAndDropTest;
+import dropdownlisttest.MercuryToursTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import popupwindowstest.BlankEmailUserForRegisterUserTest;
@@ -25,7 +26,8 @@ import tabletest.RediffMoneyTest;
         DataBaseTest.class,
         UserCredentialTest.class,
         InvalidEmailUserCredentialTest.class,
-        BlankEmailUserForRegisterUserTest.class
+        BlankEmailUserForRegisterUserTest.class,
+        MercuryToursTest.class
 })
 
 public class StudingSuite {
