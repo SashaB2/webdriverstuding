@@ -26,7 +26,6 @@ public class UserCredentialTest extends ParentTest {
 
         guruBankPopupPage.clickOnClickHereButton();
         guruBankPopupPage.switchToSearchUserByEmailPopupWindow();
-        System.out.println(searchUserByEmailPage.getHeadingOfPage());
         checkAcceptanceCriteria("Do not open search user window", searchUserByEmailPage.getHeadingOfPage(), "Enter your email address to get\naccess details to demo site");
 
         searchUserByEmailPage.inputUserEmail("b2forwt@gmail.com");

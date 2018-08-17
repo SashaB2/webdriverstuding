@@ -9,8 +9,11 @@ import parenttest.ParentTest;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 
 public class InvalidEmailUserCredentialTest extends ParentTest {
+
+    static volatile int testCount = 0;
 
     String userEmail;
 
@@ -38,18 +41,26 @@ public class InvalidEmailUserCredentialTest extends ParentTest {
     @Description("Test popup window with invalid user email")
     @Severity(SeverityLevel.NORMAL)
     public void invalidUserEmailForgenerationCredential(){
+
+        Date date = new Date();
+
+        System.out.println(date);
+
         log.info("start a test popup window with invalid user email");
         guruBankPopupPage.openPopupPage();
         checkAcceptanceCriteria("Guru Bank Popup pagee title does not coincide", guruBankPopupPage.getGuruBankPopupPageTitle(), "Guru99 Bank Home Page");
 
         guruBankPopupPage.clickOnClickHereButton();
         guruBankPopupPage.switchToSearchUserByEmailPopupWindow();
-        System.out.println(searchUserByEmailPage.getHeadingOfPage());
         checkAcceptanceCriteria("Do not open search user window", searchUserByEmailPage.getHeadingOfPage(), "Enter your email address to get\naccess details to demo site");
 
         searchUserByEmailPage.inputUserEmail(userEmail);
         searchUserByEmailPage.clickOnSubmitButton();
         checkAcceptanceCriteria("Access popup page has not been opened", searchUserByEmailPage.getTextOfErrorLable(), "Email ID is not valid");
+
+        System.out.println("-----------------------" + ++testCount + "-------------------------------------");
+
+        System.out.println(date);
 
     }
 }
