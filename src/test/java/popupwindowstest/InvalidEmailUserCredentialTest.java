@@ -41,7 +41,6 @@ public class InvalidEmailUserCredentialTest extends ParentTest {
     @Description("Test popup window with invalid user email")
     @Severity(SeverityLevel.NORMAL)
     public void invalidUserEmailForgenerationCredential(){
-
         Date date = new Date();
 
         System.out.println(date);

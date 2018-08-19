@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import libs.ScreenShots;
 
+import org.openqa.selenium.net.UrlChecker;
 import pages.*;
 import pages.datepickerpages.BirthDateDemoPage;
 import pages.datepickerpages.DatePickerPage;
@@ -38,6 +39,7 @@ import pages.tablepages.MoneyRediffPage;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import static org.hamcrest.core.Is.is;
 
@@ -157,6 +159,10 @@ public class ParentTest {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         //for load pages
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+
+
+
+
         //delete cookies
         driver.manage().deleteAllCookies();
 
