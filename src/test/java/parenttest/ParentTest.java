@@ -107,6 +107,7 @@ public class ParentTest {
                     //additional setting for Chrome on Linux
                     if(Global.isPlatform(Platform.LINUX)){
                         chromeOptions.setBinary(new File("/opt/google/chrome/chrome"));
+                        chromeOptions.setBinary(new File(ConfigData.getConfigValue("chrome_browser")));
                         chromeOptions.addArguments("--headless");
                         chromeOptions.addArguments("--no-sandbox");
                         chromeOptions.addArguments("--disable-dev-shm-usage");
@@ -138,6 +139,7 @@ public class ParentTest {
                     firefoxOptions.addArguments("--start-maximized");
 
                     if(Global.isPlatform(Platform.LINUX)){
+                        firefoxOptions.setBinary(ConfigData.getConfigValue("firefox_browser"));
                         firefoxBinary.addCommandLineOptions("--headless");
                         firefoxOptions.setBinary(firefoxBinary);
                     }
