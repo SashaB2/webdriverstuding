@@ -11,9 +11,9 @@
 7. FireFox 61.0.2
 8. Allure
 
-#Path to Screenshots
-1. /root/.jenkins/workspace/webdriverstuding/target/screenshot
+/root/.jenkins/workspace/webdriverstuding/target/screenshot
+
 #Path to allure report
-2. /opt/tomcat/webapps/allure-report
+/opt/tomcat/webapps/allure-report
 
  
