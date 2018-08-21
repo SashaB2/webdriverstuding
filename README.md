@@ -11,6 +11,7 @@
 7. FireFox 61.0.2
 8. Allure
 
+#Path to screen shots
 /root/.jenkins/workspace/webdriverstuding/target/screenshot
 
 #Path to allure report
