@@ -102,8 +102,8 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <parallel>classes</parallel>
-                    <threadCount>5</threadCount>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <threadCount>1</threadCount>
+                    <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
