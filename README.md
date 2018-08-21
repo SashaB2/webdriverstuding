@@ -14,4 +14,6 @@
 #Path to Screenshots
 1. /root/.jenkins/workspace/webdriverstuding/target/screenshot
 #Path to allure report
-2. /opt/tomcat/webapps/allure-report 
+2. /opt/tomcat/webapps/allure-report
+
+ 
