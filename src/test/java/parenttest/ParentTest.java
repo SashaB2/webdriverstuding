@@ -104,7 +104,7 @@ public class ParentTest {
 
                     //additional setting for Chrome on Linux
                     if(Global.isPlatform(Platform.LINUX)){
-                        chromeOptions.setBinary(new File("/opt/google/chrome/chrome"));
+                        chromeOptions.setBinary(new File("/opt/browsers/chrome/chrome"));
                         chromeOptions.addArguments("--headless");
                         chromeOptions.addArguments("--no-sandbox");
                         chromeOptions.addArguments("--disable-dev-shm-usage");
