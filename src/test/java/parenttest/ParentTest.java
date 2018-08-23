@@ -142,7 +142,7 @@ public class ParentTest {
 
                     FirefoxProfile profile = new FirefoxProfile();
                     profile.setPreference("browser.startup.page", 0); // Empty start page
-                    profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
+                    profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" pag
                     driver = new FirefoxDriver(firefoxOptions);
                     log.info(" FireFox is started");
                 } catch (Exception e) {
