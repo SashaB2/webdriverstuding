@@ -95,18 +95,15 @@ public class ParentTest {
 
         if("chrome".equals(browser)){
             try {
-                File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
+//                File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
+                File fileFF = new File("./drivers/chromedriver.exe");
                 System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
+
                 ChromeOptions chromeOptions = new ChromeOptions();
 
-                //additional setting for Chrome on Linux
-                if(Global.isPlatform(Platform.LINUX)){
-                    chromeOptions.setBinary(new File("/opt/browsers/chrome/chrome"));
-//                        chromeOptions.addArguments("--headless");
-                    chromeOptions.addArguments("--no-sandbox");
-                    chromeOptions.addArguments("--disable-dev-shm-usage");
-
-                }
+                chromeOptions.setBinary("/opt/browsers/chrome/chrome");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
 
                 chromeOptions.addArguments("--lang=en");
                 chromeOptions.addArguments("--start-maximized");
@@ -114,6 +111,25 @@ public class ParentTest {
                 chromeOptions.addArguments("--disable-popup-blocking");
                 chromeOptions.addArguments("--incognito");
                 driver = new ChromeDriver(chromeOptions);
+
+
+
+
+                //additional setting for Chrome on Linux
+//                if(Global.isPlatform(Platform.LINUX)){
+//                    chromeOptions.setBinary(new File("/opt/browsers/chrome/chrome"));
+////                        chromeOptions.addArguments("--headless");
+//                    chromeOptions.addArguments("--no-sandbox");
+//                    chromeOptions.addArguments("--disable-dev-shm-usage");
+//
+//                }
+//
+//                chromeOptions.addArguments("--lang=en");
+//                chromeOptions.addArguments("--start-maximized");
+//                chromeOptions.addArguments("--ignore-certificate-errors");
+//                chromeOptions.addArguments("--disable-popup-blocking");
+//                chromeOptions.addArguments("--incognito");
+//                driver = new ChromeDriver(chromeOptions);
                 log.info("Chrome is started");
             } catch (Exception e) {
                 log.error("error to start Chrome", e);
@@ -151,9 +167,9 @@ public class ParentTest {
         //implicitly wait
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         //for load pages
-        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+//        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         //delete cookies
-        driver.manage().deleteAllCookies();
+//        driver.manage().deleteAllCookies();
 
         //Page initialization
         loginPage = new LoginPage(driver);
