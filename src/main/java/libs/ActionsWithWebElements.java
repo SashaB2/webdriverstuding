@@ -302,10 +302,14 @@ public class ActionsWithWebElements {
 //                log.info("exec response: " + line1);
 //            }
         }
-        catch (IOException | InterruptedException e){
+        catch (InterruptedException e){
+            log.error("Can't download file of Yahoo", e);
+            Assert.fail("Can't download file of Yahoo");
+        }catch (IOException e){
             log.error("Can't download file of Yahoo", e);
             Assert.fail("Can't download file of Yahoo");
         }
+
     }
 
 

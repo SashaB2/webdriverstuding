@@ -1,8 +1,5 @@
 package popupwindowstest;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
 import parenttest.ParentTest;
@@ -35,8 +32,6 @@ public class InvalidEmailUserCredentialTest extends ParentTest {
 
 
     @Test
-    @Description("Test popup window with invalid user email")
-    @Severity(SeverityLevel.NORMAL)
     public void invalidUserEmailForgenerationCredential(){
         log.info("start a test popup window with invalid user email");
         guruBankPopupPage.openPopupPage();

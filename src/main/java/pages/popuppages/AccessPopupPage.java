@@ -1,6 +1,5 @@
 package pages.popuppages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,12 +23,10 @@ public class AccessPopupPage extends ParentPage {
     @FindBy(linkText = "Click Here")
     WebElement clickHereLink;
 
-    @Step
     public String getHeadingOfResultTable(){
         return actionsWithWebElements.getTextOfElement(TableHeadingXpath);
     }
 
-    @Step
     public boolean ifUserIdPresent(){
         if(actionsWithWebElements.getTextOfElement(UserIdXpath).length() > 0)
             return true;
@@ -38,7 +35,6 @@ public class AccessPopupPage extends ParentPage {
 
     }
 
-    @Step
     public Boolean ifUserPasswordPresent(){
         if(actionsWithWebElements.getTextOfElement(UserPasswordXpath).length() > 0)
             return true;
@@ -46,7 +42,6 @@ public class AccessPopupPage extends ParentPage {
             return false;
     }
 
-    @Step
     public void clickOnClickHereButton(){
         actionsWithWebElements.buttonClick(clickHereLink);
     }

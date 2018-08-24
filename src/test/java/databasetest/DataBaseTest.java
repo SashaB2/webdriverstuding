@@ -1,8 +1,5 @@
 package databasetest;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import libs.DataBase;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -32,8 +29,6 @@ public class DataBaseTest {
     }
 
     @Test
-    @Description("Saving login and password")
-    @Severity(SeverityLevel.CRITICAL)
     public void saveLoginPasswordToDataBase() throws SQLException {
         log.info("Start to verify saving Login and Password");
         HashMap<String, String> map = dataBase.getValue("select * from seleniumTable;", "login", "passWord");

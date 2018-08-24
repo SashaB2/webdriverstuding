@@ -1,13 +1,9 @@
 package pages;
 
-import io.qameta.allure.Step;
 import libs.ConfigData;
-import libs.Global;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.ParentPage;
 
 public class FileDownloadPage extends ParentPage {
 
@@ -18,7 +14,6 @@ public class FileDownloadPage extends ParentPage {
     @FindBy(id = "messenger-download")
     WebElement DownloadLinkId;
 
-    @Step
     public void navigateToYahooDownloadPage(){
         driver.navigate().to(ConfigData.getConfigValue("YAHOO_DOWNLOAD_FILE"));
     }
@@ -28,12 +23,10 @@ public class FileDownloadPage extends ParentPage {
      * @param downloadFileLocation
      * @return
      */
-    @Step
     public boolean doesDownloadedFilePresent(String downloadFileLocation){
         return actionsWithWebElements.ifFilePresent(downloadFileLocation);
     }
 
-    @Step
     public void deleteDownloadedFile(String downloadFileLocation){
         actionsWithWebElements.deleteFile(downloadFileLocation);
     }
@@ -44,7 +37,6 @@ public class FileDownloadPage extends ParentPage {
      * Example real wget command in windows cmd = (C:\CV\webdriverstuding\drivers\wget\wget.exe -P C:\CV --no-check-certificate http://demo.guru99.com/selenium/msgr11us.exe)
      * @param wgetCommand to input first part of wget command
      */
-    @Step
     public void downloadFileFromYahooPage(String wgetCommand){
         actionsWithWebElements.downloadFile(wgetCommand, DownloadLinkId.getAttribute("href"));
     }

@@ -1,8 +1,5 @@
 package downloadtest;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import libs.ConfigData;
 import org.junit.Test;
 import parenttest.ParentTest;
@@ -16,8 +13,6 @@ public class DownloadYahooFileTest extends ParentTest {
     }
 
     @Test
-    @Description("Open Yahoo download page")
-    @Severity(SeverityLevel.CRITICAL)
     public void downloadFileOfYahoo() throws IOException {
         log.info("Start to verify download file of Yahoo download page");
         fileDownloadPage.navigateToYahooDownloadPage();

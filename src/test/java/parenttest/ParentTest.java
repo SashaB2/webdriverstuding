@@ -93,64 +93,58 @@ public class ParentTest {
     public void setUp(){
         pathToScreenShot = "./target/screenshot/" + this.getClass().getPackage().getName() + "/" + this.getClass().getSimpleName() + this.testName.getMethodName() + ".jpg";
 
-        switch (browser) {
+        if("chrome".equals(browser)){
+            try {
+                File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
+                System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
+                ChromeOptions chromeOptions = new ChromeOptions();
 
-            case "chrome":
-
-                try {
-                    File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
-                    System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
-                    ChromeOptions chromeOptions = new ChromeOptions();
-
-                    //additional setting for Chrome on Linux
-                    if(Global.isPlatform(Platform.LINUX)){
-                        chromeOptions.setBinary(new File("/opt/browsers/chrome/chrome"));
+                //additional setting for Chrome on Linux
+                if(Global.isPlatform(Platform.LINUX)){
+                    chromeOptions.setBinary(new File("/opt/browsers/chrome/chrome"));
 //                        chromeOptions.addArguments("--headless");
-                        chromeOptions.addArguments("--no-sandbox");
-                        chromeOptions.addArguments("--disable-dev-shm-usage");
-                        
-                    }
+                    chromeOptions.addArguments("--no-sandbox");
+                    chromeOptions.addArguments("--disable-dev-shm-usage");
 
-                    chromeOptions.addArguments("--lang=en");
-                    chromeOptions.addArguments("--start-maximized");
-                    chromeOptions.addArguments("--ignore-certificate-errors");
-                    chromeOptions.addArguments("--disable-popup-blocking");
-                    chromeOptions.addArguments("--incognito");
-                    driver = new ChromeDriver(chromeOptions);
-                    log.info("Chrome is started");
-                } catch (Exception e) {
-                    log.error("error to start Chrome", e);
                 }
 
-                break;
+                chromeOptions.addArguments("--lang=en");
+                chromeOptions.addArguments("--start-maximized");
+                chromeOptions.addArguments("--ignore-certificate-errors");
+                chromeOptions.addArguments("--disable-popup-blocking");
+                chromeOptions.addArguments("--incognito");
+                driver = new ChromeDriver(chromeOptions);
+                log.info("Chrome is started");
+            } catch (Exception e) {
+                log.error("error to start Chrome", e);
+            }
 
-            case "fireFox":
 
-                try {
+        } else if("fireFox".equals(browser)){
+            try {
 
-                    File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
-                    System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+                File fileFF = new File(ConfigData.getConfigValue("gecko_driver"));
+                System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
 
-                    //for linux launching
-                    FirefoxBinary firefoxBinary = new FirefoxBinary();
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    firefoxOptions.addArguments("--start-maximized");
+                //for linux launching
+                FirefoxBinary firefoxBinary = new FirefoxBinary();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--start-maximized");
 
-                    if(Global.isPlatform(Platform.LINUX)){
-                        firefoxBinary.addCommandLineOptions("--headless");
-                        firefoxOptions.setBinary(firefoxBinary);
-                    }
-
-                    FirefoxProfile profile = new FirefoxProfile();
-                    profile.setPreference("browser.startup.page", 0); // Empty start page
-                    profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" pag
-                    driver = new FirefoxDriver(firefoxOptions);
-                    log.info(" FireFox is started");
-                } catch (Exception e) {
-                    log.error("error to start FireFox", e);
+                if(Global.isPlatform(Platform.LINUX)){
+                    firefoxBinary.addCommandLineOptions("--headless");
+                    firefoxOptions.setBinary(firefoxBinary);
                 }
 
-                break;
+                FirefoxProfile profile = new FirefoxProfile();
+                profile.setPreference("browser.startup.page", 0); // Empty start page
+                profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" pag
+                driver = new FirefoxDriver(firefoxOptions);
+                log.info(" FireFox is started");
+            } catch (Exception e) {
+                log.error("error to start FireFox", e);
+            }
+
 
         }
 

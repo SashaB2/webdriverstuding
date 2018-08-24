@@ -1,8 +1,5 @@
 package dropdownlisttest;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parenttest.ParentTest;
 
@@ -13,8 +10,6 @@ public class MercuryToursTest extends ParentTest {
     }
 
     @Test
-    @Description("Verify to register in Mercury tours")
-    @Severity(SeverityLevel.BLOCKER)
     public void registerMercuryTest(){
         String firstName = "Sasha";
         String lastName = "SV";

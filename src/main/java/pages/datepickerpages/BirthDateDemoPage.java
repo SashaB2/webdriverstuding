@@ -1,6 +1,5 @@
 package pages.datepickerpages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,12 +19,10 @@ public class BirthDateDemoPage extends ParentPage{
     @FindBy(xpath = "//div[contains(text(), 'Your Birth Date')]")
     WebElement resultDatePickerXpath;
 
-    @Step
     public String getDatePickerText(){
         return resultDatePickerXpath.getText();
     }
 
-    @Step
     public String takeDate(){
         String getValues = resultDatePickerXpath.getText();
         String regexDate = "\\d{4}-\\d{2}-\\d{2}";
@@ -55,7 +52,6 @@ public class BirthDateDemoPage extends ParentPage{
         return convertedDate.toString();
     }
 
-    @Step
     public String takeTime(){
         String getValues = resultDatePickerXpath.getText();
         String regexTime = "\\d{2}:\\d{2}";

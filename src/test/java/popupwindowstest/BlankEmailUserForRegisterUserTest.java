@@ -1,8 +1,5 @@
 package popupwindowstest;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
 import parenttest.ParentTest;
 
@@ -13,8 +10,6 @@ public class BlankEmailUserForRegisterUserTest extends ParentTest {
     }
 
     @Test
-    @Description("Test popup window with blank user email")
-    @Severity(SeverityLevel.NORMAL)
     public void name() {
         log.info("start a test popup window with blank user email");
         guruBankPopupPage.openPopupPage();

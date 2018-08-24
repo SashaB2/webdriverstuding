@@ -1,6 +1,5 @@
 package pages.popuppages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,22 +23,18 @@ public class SearchUserByEmailPage extends ParentPage{
     @FindBy(name = "btnLogin")
     WebElement SubmitButtonID;
 
-    @Step
     public String getHeadingOfPage(){
         return actionsWithWebElements.getTextOfElement(TableHeadingXpath);
     }
 
-    @Step
     public void inputUserEmail(String userEmail){
         actionsWithWebElements.inputValueInField(EmailIdFieldName, userEmail);
     }
 
-    @Step
     public void clickOnSubmitButton(){
         actionsWithWebElements.buttonClick(SubmitButtonID);
     }
 
-    @Step
     public String getTextOfErrorLable(){
         return actionsWithWebElements.getTextOfElement(ErrorLabelID);
     }

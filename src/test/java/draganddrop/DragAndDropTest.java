@@ -1,9 +1,5 @@
 package draganddrop;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import libs.ConfigData;
 import org.junit.Test;
 import parenttest.ParentTest;
@@ -16,9 +12,6 @@ public class DragAndDropTest extends ParentTest {
 
 
     @Test
-    @Description("Valid Drag And Drop Test")
-    @Severity(SeverityLevel.CRITICAL)
-    @Epic("Bank deposit anf loan")
     public void validDragAndDropTest(){
         log.info("Start valid Drag and Drop test DatePicker Test");
         loginPage.openLoginPage(ConfigData.getConfigValue("base_url"));

@@ -1,6 +1,5 @@
 package pages.popuppages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,27 +18,22 @@ public class GuruBankPopupPage extends ParentPage {
     WebElement clickHereLink;
 
 
-    @Step
     public void openPopupPage(){
         driver.navigate().to("http://demo.guru99.com/popup.php");
     }
 
-    @Step
     public String getGuruBankPopupPageTitle(){
         return getPageTitle();
     }
 
-    @Step
     public void clickOnClickHereButton(){
         actionsWithWebElements.buttonClick(clickHereLink);
     }
 
-    @Step
     public void openArticlePopupWindow(){
         actionsWithWebElements.buttonClick(clickHereLink);
     }
 
-    @Step
     public void switchToSearchUserByEmailPopupWindow(){
         actionsWithWebElements.switchToPopupWindow();
     }

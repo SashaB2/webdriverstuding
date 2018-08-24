@@ -1,6 +1,5 @@
 package pages.gurubank;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,28 +21,23 @@ public class ManagerPage extends ParentPage {
     @FindBy(xpath = "//td[contains(text(),'Manger Id : ')]")
     WebElement LoggedUserID;
 
-    @Step
     public void clickOnLogoutLink(){
         actionsWithWebElements.buttonClick(LogoutButtonLink);
     }
 
-    @Step
     public String getAlertTextOfConfirmationOfLogOut(){
         return actionsWithWebElements.getAlertText();
     }
 
-    @Step
     public void manageAlertConfirmationOfLogOut(Boolean action){
         actionsWithWebElements.alertActions(action);
     }
 
-    @Step
     public String getLoggedUserID(){
         return LoggedUserID.getText();
     }
 
     //navigation bar links
-    @Step
     public void openNewCustomerPage(){
         actionsWithWebElements.buttonClick(NewUserLink);
     }
