@@ -96,7 +96,7 @@ public class ParentTest {
         if("chrome".equals(browser)){
             try {
 //                File fileFF = new File(ConfigData.getConfigValue("chrome_driver"));
-                File fileFF = new File("./drivers/chromedriver.exe");
+                File fileFF = new File("./drivers/chromedriver");
                 System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
 
                 ChromeOptions chromeOptions = new ChromeOptions();
