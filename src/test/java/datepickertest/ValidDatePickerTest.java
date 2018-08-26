@@ -5,6 +5,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import libs.ConfigData;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.Keys;
 import parenttest.ParentTest;
@@ -12,6 +13,7 @@ import parenttest.ParentTest;
 import java.util.Arrays;
 import java.util.Collection;
 
+@RunWith(value = Parameterized.class)
 public class ValidDatePickerTest extends ParentTest {
 
     private String inputtedDateInDatePicker;
