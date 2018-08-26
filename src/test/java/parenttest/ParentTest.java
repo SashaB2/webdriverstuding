@@ -23,7 +23,6 @@ import java.io.File;
 import java.io.IOException;
 import libs.ScreenShots;
 
-import org.openqa.selenium.net.UrlChecker;
 import pages.*;
 import pages.datepickerpages.BirthDateDemoPage;
 import pages.datepickerpages.DatePickerPage;
@@ -39,7 +38,6 @@ import pages.tablepages.MoneyRediffPage;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 import static org.hamcrest.core.Is.is;
 
@@ -71,6 +69,7 @@ public class ParentTest {
     protected AccessPopupPage accessPopupPage;
     protected MercuryRegisterPage mercuryRegisterPage;
     protected MercuryRegisterSucessPage mercuryRegisterSucessPage;
+    protected ZltiPage zltiPage;
 
 
     public ParentTest(String browser){
@@ -183,6 +182,7 @@ public class ParentTest {
         accessPopupPage = new AccessPopupPage(driver);
         mercuryRegisterPage = new MercuryRegisterPage(driver);
         mercuryRegisterSucessPage = new MercuryRegisterSucessPage(driver);
+        zltiPage = new ZltiPage(driver);
     }
 
     @After

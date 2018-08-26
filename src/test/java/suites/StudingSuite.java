@@ -14,7 +14,6 @@ import popupwindowstest.InvalidEmailUserCredentialTest;
 import popupwindowstest.UserCredentialTest;
 import tabletest.RediffMoneyTest;
 
-//TO DO: add download test executing to linux
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         DragAndDropTest.class,

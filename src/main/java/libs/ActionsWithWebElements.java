@@ -26,23 +26,13 @@ public class ActionsWithWebElements {
         this.log = Logger.getLogger(getClass());
     }
 
-
-    public void submitClick(WebElement element){
-        try {
-            element.submit();
-        }
-        catch (Exception e){
-            log.error("Error when to click on a submit button", e);
-        }
-    }
-
     public String getTextOfElement(WebElement element){
         String string = "";
         try {
             string = element.getText();
         }
         catch (org.openqa.selenium.NoSuchElementException e){
-            log.error("Can not find suc element", e);
+            log.error("Can not find a such element", e);
         }
         catch (Exception e){
             log.error("Error: ", e);

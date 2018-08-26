@@ -9,8 +9,6 @@ import parenttest.ParentTest;
 
 import libs.ConfigData;
 
-import static org.hamcrest.core.Is.is;
-
 public class ValidLoginLogoutTest extends ParentTest {
 
     public ValidLoginLogoutTest(String browser){

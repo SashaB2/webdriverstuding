@@ -4,11 +4,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
-import org.junit.runners.Parameterized;
 import parenttest.ParentTest;
 
-import java.util.Arrays;
-import java.util.Collection;
 
 public class UserCredentialTest extends ParentTest {
 
