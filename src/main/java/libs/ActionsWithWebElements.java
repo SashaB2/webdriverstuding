@@ -1,19 +1,18 @@
 package libs;
 
 
-import org.apache.http.util.Asserts;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class ActionsWithWebElements {
@@ -339,5 +338,51 @@ public class ActionsWithWebElements {
         }
     }
 
+
+    //Broken links
+
+    /**
+     * check is links are either good or broken
+     * @param pageUrl set page url
+     * @param elements set list of all element
+     */
+    public void checkBrokenLinks(String pageUrl, List<WebElement> elements ){
+        HttpURLConnection httpURLConnection = null;
+        String url = "";
+        int responceCode;
+
+        for (WebElement element: elements) {
+            url = element.getAttribute("href");
+
+            if(url == null || url.isEmpty()){
+                log.error("This url is either not configure or empty. URL text: " + element.getText());
+                continue;
+            }
+
+            if(!url.startsWith(pageUrl)){
+                log.trace("This url belongs to another domain. URL text: " + element.getText());
+                continue;
+            }
+
+            try{
+                httpURLConnection = (HttpURLConnection)(new URL(url).openConnection());
+                httpURLConnection.setRequestMethod("HEAD");
+                httpURLConnection.connect();
+                responceCode = httpURLConnection.getResponseCode();
+
+                if(responceCode >= 400){
+                    log.error("This url is broken. Url text: " + element.getText());
+                }
+            }
+            catch (MalformedURLException e){
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+    }
 
 }

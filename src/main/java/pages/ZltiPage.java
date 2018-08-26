@@ -5,6 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class ZltiPage extends ParentPage{
@@ -12,16 +16,21 @@ public class ZltiPage extends ParentPage{
         super(driver);
     }
 
+    String pageUrl = "http://www.zlti.com";
+
     @FindBy(tagName = "a")
     List<WebElement> Links;
 
 
     @Step
     public void openZltipage(){
-        driver.navigate().to("http://www.zlti.com");
+        driver.navigate().to(pageUrl);
     }
 
     @Step
+    public void checkLinksOnZltiPage(){
+        actionsWithWebElements.checkBrokenLinks(pageUrl, Links);
+    }
 
 
 

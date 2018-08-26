@@ -10,6 +10,10 @@ public class ZltiBrokenLinksTest extends ParentTest {
 
     @Test
     public void zltiBrokentLinksTest(){
+        log.info("Check if links are broken on Zlti page");
         zltiPage.openZltipage();
+        zltiPage.checkLinksOnZltiPage();
     }
+
+
 }
