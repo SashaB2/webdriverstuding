@@ -13,7 +13,7 @@ public class ZltiBrokenLinksTest extends ParentTest {
 
     @Test
     @Description("Saving login and password")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.BLOCKER)
     public void zltiBrokentLinksTest(){
         log.info("Check if links are broken on Zlti page");
         zltiPage.openZltipage();
