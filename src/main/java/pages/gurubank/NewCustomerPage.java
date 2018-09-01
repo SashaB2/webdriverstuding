@@ -13,46 +13,46 @@ public class NewCustomerPage extends ParentPage {
     }
 
     @FindBy(xpath = "//tbody//p[@class='heading3']")
-    WebElement AddNewCustoerHeadingXpath;
+    private WebElement AddNewCustoerHeadingXpath;
 
     @FindBy(name = "name")
-    WebElement CustomerNameInputFieldName;
+    private WebElement CustomerNameInputFieldName;
 
     @FindBy(xpath = "//input[@name='rad1' and @value='m']")
-    WebElement MaleRadioButtonXpath;
+    private WebElement MaleRadioButtonXpath;
 
     @FindBy(xpath = "//input[@name='rad1' and @value='f']")
-    WebElement FemaleRadioButtonXpath;
+    private WebElement FemaleRadioButtonXpath;
 
     @FindBy(id = "dob")
-    WebElement DateOfBirthdayDatePickerId;
+    private WebElement DateOfBirthdayDatePickerId;
 
     @FindBy(name = "addr")
-    WebElement AddressAreaName;
+    private WebElement AddressAreaName;
 
     @FindBy(name = "city")
-    WebElement CityInputFieldName;
+    private WebElement CityInputFieldName;
 
     @FindBy(name = "state")
-    WebElement StateInputFieldName;
+    private WebElement StateInputFieldName;
 
     @FindBy(name = "pinno")
-    WebElement PINInputFieldName;
+    private WebElement PINInputFieldName;
 
     @FindBy(name = "telephoneno")
-    WebElement MobileNumberInputFieldName;
+    private WebElement MobileNumberInputFieldName;
 
     @FindBy(name = "emailid")
-    WebElement EmailInputFieldName;
+    private WebElement EmailInputFieldName;
 
     @FindBy(name = "password")
-    WebElement PasswordInputFieldName;
+    private WebElement PasswordInputFieldName;
 
     @FindBy(name = "sub")
-    WebElement SubmitIButtonName;
+    private WebElement SubmitIButtonName;
 
     @FindBy(name = "res")
-    WebElement ResetIButtonName;
+    private WebElement ResetIButtonName;
 
     @Step
     public void inputCustomerName(String customerName){

@@ -21,25 +21,25 @@ public class LoginPage extends ParentPage {
     }
 
     @FindBy(name = "uid")
-    WebElement UserIdFieldName;
+    private WebElement UserIdFieldName;
 
     @FindBy(name = "password")
-    WebElement PasswordFieldName;
+    private WebElement PasswordFieldName;
 
     @FindBy(name = "btnLogin")
-    WebElement LoginButtonName;
+    private WebElement LoginButtonName;
 
     @FindBy(name = "btnReset")
-    WebElement ResetButtonName;
+    private WebElement ResetButtonName;
 
     @FindBy(id = "message23")
-    WebElement InfoHintOfUserIdFieldID;
+    private WebElement InfoHintOfUserIdFieldID;
 
     @FindBy(id = "message18")
-    WebElement InfoHintOfUPasswordFieldID;
+    private WebElement InfoHintOfUPasswordFieldID;
 
     @FindBy(tagName = "a")
-    List<WebElement> allLinksTagName;
+    private List<WebElement> allLinksTagName;
 
     @Step
     public void openLoginPage(String loginPageUrl){

@@ -16,7 +16,7 @@ public class GuruBankPopupPage extends ParentPage {
     }
 
     @FindBy(linkText = "Click Here")
-    WebElement clickHereLink;
+    private WebElement clickHereLink;
 
 
     @Step

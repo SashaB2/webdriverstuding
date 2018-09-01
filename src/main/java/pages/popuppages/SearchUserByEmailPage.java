@@ -13,16 +13,16 @@ public class SearchUserByEmailPage extends ParentPage{
     }
     
     @FindBy(xpath = "//table//h2")
-    WebElement TableHeadingXpath;
+    private WebElement TableHeadingXpath;
 
     @FindBy(name = "emailid")
-    WebElement EmailIdFieldName;
+    private WebElement EmailIdFieldName;
 
     @FindBy(id = "message9")
-    WebElement ErrorLabelID;
+    private WebElement ErrorLabelID;
 
     @FindBy(name = "btnLogin")
-    WebElement SubmitButtonID;
+    private WebElement SubmitButtonID;
 
     @Step
     public String getHeadingOfPage(){

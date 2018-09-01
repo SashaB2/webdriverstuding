@@ -14,47 +14,47 @@ public class MercuryRegisterPage extends ParentPage {
     //Contact information
 
     @FindBy(name = "firstName")
-    WebElement FirstNameName;
+    private  WebElement FirstNameName;
 
     @FindBy(name = "lastName")
-    WebElement LastNameName;
+    private WebElement LastNameName;
 
     @FindBy(name = "phone")
-    WebElement PhoneName;
+    private WebElement PhoneName;
 
     @FindBy(id = "userName")
-    WebElement EmailID;
+    private WebElement EmailID;
 
     //Mailing Information
 
     @FindBy(name = "address1")
-    WebElement AddressName;
+    private WebElement AddressName;
 
     @FindBy(name = "city")
-    WebElement CityName;
+    private WebElement CityName;
 
     @FindBy(name = "state")
-    WebElement StateName;
+    private WebElement StateName;
 
     @FindBy(name = "postalCode")
-    WebElement PostCodeName;
+    private WebElement PostCodeName;
 
     @FindBy(name = "country")
-    WebElement CountryDropDownName;
+    private WebElement CountryDropDownName;
 
     //User Information
 
     @FindBy(id = "email")
-    WebElement UserNameID;
+    private WebElement UserNameID;
 
     @FindBy(name = "password")
-    WebElement UserPasswordName;
+    private WebElement UserPasswordName;
 
     @FindBy(name = "confirmPassword")
-    WebElement UserConfirmPasswordName;
+    private WebElement UserConfirmPasswordName;
 
     @FindBy(name = "submit")
-    WebElement SubmitButtonName;
+    private WebElement SubmitButtonName;
 
     @Step
     public void openRegisterPage() {

@@ -14,13 +14,13 @@ public class DatePickerPage extends ParentPage {
     }
 
     @FindBy(tagName = "h3")
-    WebElement PageHeaderTagName;
+    private WebElement PageHeaderTagName;
 
     @FindBy(name = "bdaytime")
-    WebElement dataPickerName;
+    private WebElement dataPickerName;
 
     @FindBy(xpath = "//input[@type='submit']")
-    WebElement SubmitButtonXpath;
+    private WebElement SubmitButtonXpath;
 
     @Step
     public String headerOfBirthDateDemoPage(){

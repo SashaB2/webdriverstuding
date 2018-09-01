@@ -16,7 +16,7 @@ public class FileDownloadPage extends ParentPage {
     }
 
     @FindBy(id = "messenger-download")
-    WebElement DownloadLinkId;
+    private WebElement DownloadLinkId;
 
     @Step
     public void navigateToYahooDownloadPage(){

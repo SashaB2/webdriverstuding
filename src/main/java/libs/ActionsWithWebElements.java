@@ -77,7 +77,6 @@ public class ActionsWithWebElements {
 
     }
 
-
     /**
      * get page title from header in HTML
      * @return
@@ -183,6 +182,7 @@ public class ActionsWithWebElements {
         }
 
     }
+
     /**
      * alert action
      */
@@ -281,15 +281,8 @@ public class ActionsWithWebElements {
         try{
             Process execution = Runtime.getRuntime().exec(wgetCommand + " " + downloadFileURL);
             int exitVal = execution.waitFor();
+            log.info("Input steam");
 
-            log.info("Inpt steam");
-
-            //when file does not download then view logs
-//            BufferedReader buf1 = new BufferedReader(new InputStreamReader(execution.getInputStream()));
-//            String line1 = "";
-//            while ((line1 = buf1.readLine()) != null) {
-//                log.info("exec response: " + line1);
-//            }
         }
         catch (IOException | InterruptedException e){
             log.error("Can't download file of Yahoo", e);

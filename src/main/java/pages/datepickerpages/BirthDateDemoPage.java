@@ -18,7 +18,7 @@ public class BirthDateDemoPage extends ParentPage{
     }
 
     @FindBy(xpath = "//div[contains(text(), 'Your Birth Date')]")
-    WebElement resultDatePickerXpath;
+    private WebElement resultDatePickerXpath;
 
     @Step
     public String getDatePickerText(){

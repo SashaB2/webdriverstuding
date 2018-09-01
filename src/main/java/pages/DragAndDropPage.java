@@ -12,47 +12,47 @@ public class DragAndDropPage extends ParentPage{
     }
 
     @FindBy(tagName = "h1")
-    WebElement PageHeaderTagName;
+    private WebElement PageHeaderTagName;
 
     @FindBy(id = "credit2")
-    WebElement BankItemId;
+    private WebElement BankItemId;
 
     @FindBy(id = "bank")
-    WebElement BankDropHolderId;
+    private WebElement BankDropHolderId;
 
     @FindBy(id = "credit1")
-    WebElement SalesItemId;
+    private WebElement SalesItemId;
 
     @FindBy(id = "loan")
-    WebElement SalesDropHolderId;
+    private WebElement SalesDropHolderId;
 
     //5000 - 1
     @FindBy(xpath = "//li[@id='fourth'][1]")
-    WebElement MoneyItemFiveHundredFirstXpath;
+    private WebElement MoneyItemFiveHundredFirstXpath;
 
     //5000 - 2
     @FindBy(xpath = "//li[@id='fourth'][2]")
-    WebElement MoneyItemFiveHundredSecondXpath;
+    private WebElement MoneyItemFiveHundredSecondXpath;
 
     //for first 500
     @FindBy(id = "amt7")
-    WebElement BankMoneyDropId;
+    private WebElement BankMoneyDropId;
 
     //for second 500
     @FindBy(id = "amt8")
-    WebElement SalesMoneyDropId;
+    private WebElement SalesMoneyDropId;
 
     //result table
     @FindBy(xpath = "//div[@id='bal3']/table")
-    WebElement ResultTableXpath;
+    private WebElement ResultTableXpath;
 
     //for debit movement
     @FindBy(id = "t7")
-    WebElement DebitMovementValueId;
+    private WebElement DebitMovementValueId;
 
     //for credit movement
     @FindBy(id = "t8")
-    WebElement CreditMovementValueId;
+    private WebElement CreditMovementValueId;
 
     @Step
     public String headerOfDragAndDropPage(){

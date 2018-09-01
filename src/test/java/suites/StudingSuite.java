@@ -1,5 +1,6 @@
 package suites;
 
+import brokenlinkstest.ZltiBrokenLinksTest;
 import databasetest.DataBaseTest;
 import datepickertest.InvalidDatePickerTest;
 import datepickertest.ValidDatePickerTest;
@@ -9,6 +10,7 @@ import draganddrop.DragAndDropTest;
 import dropdownlisttest.MercuryToursTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import pages.ZltiPage;
 import popupwindowstest.BlankEmailUserForRegisterUserTest;
 import popupwindowstest.InvalidEmailUserCredentialTest;
 import popupwindowstest.UserCredentialTest;
@@ -26,7 +28,8 @@ import tabletest.RediffMoneyTest;
         UserCredentialTest.class,
         InvalidEmailUserCredentialTest.class,
         BlankEmailUserForRegisterUserTest.class,
-        MercuryToursTest.class
+        MercuryToursTest.class,
+        ZltiBrokenLinksTest.class
 })
 
 public class StudingSuite {

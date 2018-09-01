@@ -13,16 +13,16 @@ public class AccessPopupPage extends ParentPage {
     }
 
     @FindBy(xpath = "//table//h2")
-    WebElement TableHeadingXpath;
+    private WebElement TableHeadingXpath;
 
     @FindBy(xpath = "//tbody/tr[4]/td[2]")
-    WebElement UserIdXpath;
+    private WebElement UserIdXpath;
 
     @FindBy(xpath = "//tbody/tr[5]/td[2]")
-    WebElement UserPasswordXpath;
+    private WebElement UserPasswordXpath;
 
     @FindBy(linkText = "Click Here")
-    WebElement clickHereLink;
+    private WebElement clickHereLink;
 
     @Step
     public String getHeadingOfResultTable(){

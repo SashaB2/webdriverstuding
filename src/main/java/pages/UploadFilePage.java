@@ -11,10 +11,10 @@ public class UploadFilePage extends ParentPage {
     }
 
     @FindBy(id = "photoimg")
-    WebElement UploadInputButtonID;
+    private WebElement UploadInputButtonID;
 
     @FindBy(tagName = "h4")
-    WebElement successfulUploadFileInfoTagname;
+    private WebElement successfulUploadFileInfoTagname;
 
     @Step
     public void openUploadFilePage(){

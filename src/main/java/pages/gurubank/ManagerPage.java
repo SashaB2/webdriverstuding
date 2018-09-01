@@ -13,14 +13,13 @@ public class ManagerPage extends ParentPage {
     }
 
     @FindBy(xpath = "//a[@href='Logout.php']")
-    WebElement LogoutButtonLink;
+    private WebElement LogoutButtonLink;
 
-    //
     @FindBy(partialLinkText = "New Customer")
-    WebElement NewUserLink;
+    private WebElement NewUserLink;
 
     @FindBy(xpath = "//td[contains(text(),'Manger Id : ')]")
-    WebElement LoggedUserID;
+    private WebElement LoggedUserID;
 
     @Step
     public void clickOnLogoutLink(){

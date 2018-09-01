@@ -16,10 +16,10 @@ public class ZltiPage extends ParentPage{
         super(driver);
     }
 
-    String pageUrl = "http://www.zlti.com";
+    final String pageUrl = "http://www.zlti.com";
 
     @FindBy(tagName = "a")
-    List<WebElement> Links;
+    private List<WebElement> Links;
 
 
     @Step

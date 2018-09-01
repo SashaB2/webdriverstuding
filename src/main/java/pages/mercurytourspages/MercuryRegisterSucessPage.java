@@ -12,10 +12,10 @@ public class MercuryRegisterSucessPage extends ParentPage {
     }
 
     @FindBy(xpath = "//p//*[contains(text(), 'Dear')]")
-    WebElement RegisteredUserFirstlastNameXpath;
+    private WebElement RegisteredUserFirstlastNameXpath;
 
     @FindBy(xpath = "//p//*[contains(text(), 'Note: Your user name is')]")
-    WebElement RegisteredUserLoginNameXpath;
+    private WebElement RegisteredUserLoginNameXpath;
 
     public String getUserRegisteredFirstLastNameInfo(){
         return actionsWithWebElements.getTextOfElement(RegisteredUserFirstlastNameXpath);
